@@ -48,7 +48,7 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
 const codingStats = [
   {
     platform: 'LeetCode',
-    stat: '650+',
+    stat: '750+',
     label: 'Problems Solved',
     accent: '#f59e0b',
     icon: (
@@ -68,7 +68,7 @@ const codingStats = [
   },
   {
     platform: 'GitHub',
-    stat: '40+',
+    stat: '30+',
     label: 'Repositories',
     accent: '#00F0FF',
     icon: (
@@ -142,7 +142,7 @@ const achievements = [
   },
   {
     title: 'Competitive Programming',
-    description: '1000+ DSA problems solved across platforms (650+ LeetCode, 3-Star CodeChef) demonstrating deep algorithmic foundations.',
+    description: '1200+ DSA problems solved across platforms (750+ LeetCode, 3-Star CodeChef) demonstrating deep algorithmic foundations.',
     type: 'Achievement',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -353,7 +353,7 @@ const Achievements = () => {
         <div className="hidden sm:block h-8 w-px bg-white/10" />
         <div className="text-center">
           <p className="text-[28px] font-black gradient-text-magenta">
-            <AnimatedCounter target={1000} suffix="+" />
+            <AnimatedCounter target={1200} suffix="+" />
           </p>
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">DSA Problems</p>
         </div>
@@ -367,7 +367,7 @@ const Achievements = () => {
         <div className="hidden sm:block h-8 w-px bg-white/10" />
         <div className="text-center">
           <p className="text-[28px] font-black text-green-400">
-            <AnimatedCounter target={40} suffix="+" />
+            <AnimatedCounter target={30} suffix="+" />
           </p>
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">GitHub Repos</p>
         </div>

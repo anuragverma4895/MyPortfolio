@@ -90,7 +90,7 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
                   title="Source Code"
                   aria-label={`View source code for ${name} on GitHub`}
                 >
-                  <img src={github} alt="" className="h-1/2 w-1/2 object-contain" />
+                  <img src={github} alt="" className="project-github-icon h-1/2 w-1/2 object-contain" />
                 </button>
               </div>
             </div>
@@ -169,7 +169,7 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
                   title="View Source Code"
                   aria-label={`View source code for ${name} on GitHub`}
                 >
-                  <img src={github} alt="" className="h-1/2 w-1/2 object-contain" />
+                  <img src={github} alt="" className="project-github-icon h-1/2 w-1/2 object-contain" />
                 </button>
               </div>
             </div>
