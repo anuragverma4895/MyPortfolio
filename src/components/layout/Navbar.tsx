@@ -75,7 +75,7 @@ const Navbar = ({ activeSection = null, contactOpen = false }: NavbarProps) => {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
         <a
           href="#"
           className="flex items-center gap-2 group"
