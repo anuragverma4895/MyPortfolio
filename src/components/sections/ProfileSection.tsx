@@ -76,48 +76,50 @@ const ProfileSection = () => {
       </motion.div>
 
       {/* Three Cards Grid */}
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Contact Me Card */}
         <motion.div
           variants={fadeIn('up', 'spring', 0, 0.75)}
-          className="glass-card card-lift rounded-3xl p-6 lg:aspect-square flex flex-col"
+          className="glass-card card-lift rounded-3xl p-5 lg:aspect-square flex flex-col"
         >
-          <h4 className="mb-6 flex items-center gap-3 text-[20px] font-bold">
+          <h4 className="mb-4 flex items-center gap-3 text-[18px] font-bold">
             <span
-              className="h-[2px] w-8"
+              className="h-[2px] w-6"
               style={{ background: 'linear-gradient(90deg, #00F0FF, transparent)' }}
             />
             <span className="gradient-text-cyan">CONTACT ME</span>
           </h4>
-          <div className="flex flex-col gap-4">
+
+          <div className="flex flex-col gap-2">
             <a
               href={`mailto:${contactInfo.email}`}
-              className="truncate text-[16px] text-white transition-all duration-200 hover:text-accent-cyan hover:glow-text"
+              className="truncate text-[14px] text-white transition-all duration-200 hover:text-accent-cyan"
               aria-label={`Send email to ${contactInfo.email}`}
             >
-              {contactInfo.email}
+              ✉ {contactInfo.email}
             </a>
             <a
               href={`tel:${contactInfo.phone}`}
-              className="text-[16px] text-white transition-all duration-200 hover:text-accent-cyan"
+              className="text-[14px] text-white transition-all duration-200 hover:text-accent-cyan"
               aria-label={`Call phone number ${contactInfo.phone}`}
             >
-              {contactInfo.phone}
+              ☎ {contactInfo.phone}
             </a>
-            <p className="mt-2 border-t border-white/5 pt-4 text-[14px] text-secondary">
-              {contactInfo.education}
+            <p className="text-[13px] text-secondary">
+              🎓 {contactInfo.education}
             </p>
           </div>
-          <div className="mt-auto grid gap-3 pt-4">
+
+          <div className="mt-auto grid gap-2 pt-3">
             {contactHighlights.map(item => (
               <div
                 key={item.label}
-                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-4 py-3 transition-all duration-300 hover:border-accent-cyan/20 hover:bg-white/[0.04]"
+                className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2 transition-all duration-300 hover:border-accent-cyan/20 hover:bg-white/[0.04]"
               >
-                <p className="text-[11px] uppercase tracking-[0.24em]" style={{ color: 'rgba(0, 240, 255, 0.6)' }}>
+                <span className="text-[10px] uppercase tracking-[0.2em] whitespace-nowrap shrink-0" style={{ color: 'rgba(0, 240, 255, 0.6)' }}>
                   {item.label}
-                </p>
-                <p className="mt-1 text-[14px] text-white/85">{item.value}</p>
+                </span>
+                <span className="text-[13px] text-white/85">{item.value}</span>
               </div>
             ))}
           </div>
@@ -126,19 +128,19 @@ const ProfileSection = () => {
         {/* Profiles Card */}
         <motion.div
           variants={fadeIn('up', 'spring', 0.15, 0.75)}
-          className="glass-card card-lift rounded-3xl p-6 lg:aspect-square flex flex-col"
+          className="glass-card card-lift rounded-3xl p-5 lg:aspect-square flex flex-col"
         >
-          <h4 className="mb-6 flex items-center gap-3 text-[20px] font-bold">
+          <h4 className="mb-4 flex items-center gap-3 text-[18px] font-bold">
             <span
-              className="h-[2px] w-8"
+              className="h-[2px] w-6"
               style={{ background: 'linear-gradient(90deg, #FF006E, transparent)' }}
             />
             <span className="gradient-text-magenta">PROFILES</span>
           </h4>
-          <p className="mb-6 text-[14px] text-secondary">
+          <p className="mb-4 text-[13px] text-secondary">
             Connect with me across coding and professional networks.
           </p>
-          <div className="mt-auto grid grid-cols-2 gap-4">
+          <div className="mt-auto grid grid-cols-2 gap-3">
             {socialLinks.map(link => (
               <a
                 key={link.name}
@@ -146,7 +148,7 @@ const ProfileSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Visit Anurag's ${link.name} profile`}
-                className="group flex min-w-0 flex-col items-center justify-center gap-2 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-3 py-4 text-center transition-all duration-300 hover:-translate-y-2 hover:border-white/15 hover:bg-white/[0.05]"
+                className="group flex min-w-0 flex-col items-center justify-center gap-2 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-3 py-3 text-center transition-all duration-300 hover:-translate-y-2 hover:border-white/15 hover:bg-white/[0.05]"
                 style={{
                   ['--hover-glow' as string]: link.accent,
                 }}
@@ -158,12 +160,12 @@ const ProfileSection = () => {
                 }}
               >
                 <span
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-white/[0.06] bg-black/25 text-white transition-all duration-300 group-hover:scale-110"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-black/25 text-white transition-all duration-300 group-hover:scale-110"
                   style={{ boxShadow: `0 0 24px ${link.accent}15` }}
                 >
                   {link.icon}
                 </span>
-                <span className="block max-w-full truncate text-[15px] font-semibold text-white sm:text-[16px]">
+                <span className="block max-w-full truncate text-[13px] font-semibold text-white">
                   {link.name}
                 </span>
               </a>
@@ -174,25 +176,24 @@ const ProfileSection = () => {
         {/* CTA Card */}
         <motion.div
           variants={fadeIn('up', 'spring', 0.3, 0.75)}
-          className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl p-6 text-center card-lift lg:aspect-square"
+          className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl p-5 text-center card-lift lg:aspect-square"
           style={{
             background: 'linear-gradient(135deg, rgba(0, 240, 255, 0.06) 0%, rgba(255, 0, 110, 0.06) 100%)',
             border: '1px solid rgba(0, 240, 255, 0.15)',
           }}
         >
-          {/* Animated background orbs */}
           <div className="absolute right-0 top-0 -mr-10 -mt-10 h-24 w-24 rounded-full animate-pulse-glow" style={{ background: 'rgba(0, 240, 255, 0.1)', filter: 'blur(40px)' }} />
           <div className="absolute bottom-0 left-0 -mb-10 -ml-6 h-28 w-28 rounded-full animate-pulse-glow" style={{ background: 'rgba(255, 0, 110, 0.08)', filter: 'blur(40px)', animationDelay: '1.5s' }} />
 
-          <h4 className="mb-4 text-[22px] font-bold text-white">Ready to collaborate?</h4>
-          <p className="mb-5 max-w-xs text-[15px] leading-7 text-white/70">
-            From modern web applications to scalable backend architectures and AI pipelines, let&apos;s build something exceptional.
+          <h4 className="mb-3 text-[20px] font-bold text-white">Ready to collaborate?</h4>
+          <p className="mb-4 max-w-xs text-[13px] leading-5 text-white/70">
+            From modern web apps to scalable backends and AI pipelines, let&apos;s build something exceptional.
           </p>
-          <div className="mb-6 flex flex-wrap justify-center gap-2">
+          <div className="mb-4 flex flex-wrap justify-center gap-2">
             {ctaHighlights.map(item => (
               <span
                 key={item}
-                className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80 transition-all duration-300 hover:border-accent-cyan/30 hover:bg-accent-cyan/10"
+                className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/80 transition-all duration-300 hover:border-accent-cyan/30 hover:bg-accent-cyan/10"
               >
                 {item}
               </span>
@@ -200,11 +201,11 @@ const ProfileSection = () => {
           </div>
           <a
             href="#contact"
-            className="btn-solid rounded-xl px-7 py-3 text-[15px] font-bold"
+            className="btn-solid rounded-xl px-6 py-2.5 text-[14px] font-bold"
           >
             Get in Touch →
           </a>
-          <p className="mt-4 text-[13px] text-white/50">Fast response · Open to global opportunities</p>
+          <p className="mt-3 text-[12px] text-white/50">Fast response · Open to global opportunities</p>
         </motion.div>
       </div>
     </>

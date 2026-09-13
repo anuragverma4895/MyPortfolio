@@ -44,7 +44,7 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
           />
 
           <div>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+            <div className="relative aspect-square w-full overflow-hidden rounded-xl">
               <img
                 src={image}
                 alt={`${name} preview`}
@@ -97,7 +97,7 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
 
             <div className="mt-5 relative z-10">
               <h3 className="text-[22px] sm:text-[24px] font-bold text-white group-hover:gradient-text-cyan transition-colors duration-300">{name}</h3>
-              <p className="text-secondary mt-2 text-[14px] leading-[22px] line-clamp-4">{description}</p>
+              <p className="text-secondary mt-2 text-[13px] leading-[20px] line-clamp-3">{description}</p>
             </div>
           </div>
 
@@ -150,7 +150,7 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
           />
 
           <div>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+            <div className="relative aspect-square w-full overflow-hidden rounded-xl">
               <img
                 src={image}
                 alt={`${name} preview`}
@@ -176,7 +176,7 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
 
             <div className="mt-5 relative z-10">
               <h3 className="text-[22px] sm:text-[24px] font-bold text-white group-hover:text-pink-200 transition-colors duration-300">{name}</h3>
-              <p className="text-secondary mt-2 text-[14px] leading-[22px] line-clamp-4">{description}</p>
+              <p className="text-secondary mt-2 text-[13px] leading-[20px] line-clamp-3">{description}</p>
             </div>
           </div>
 
