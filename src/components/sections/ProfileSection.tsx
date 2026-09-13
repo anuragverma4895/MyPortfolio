@@ -80,7 +80,7 @@ const ProfileSection = () => {
         {/* Contact Me Card */}
         <motion.div
           variants={fadeIn('up', 'spring', 0, 0.75)}
-          className="glass-card card-lift rounded-3xl p-8"
+          className="glass-card card-lift rounded-3xl p-6 lg:aspect-square flex flex-col"
         >
           <h4 className="mb-6 flex items-center gap-3 text-[20px] font-bold">
             <span
@@ -108,7 +108,7 @@ const ProfileSection = () => {
               {contactInfo.education}
             </p>
           </div>
-          <div className="mt-6 grid gap-3">
+          <div className="mt-auto grid gap-3 pt-4">
             {contactHighlights.map(item => (
               <div
                 key={item.label}
@@ -126,7 +126,7 @@ const ProfileSection = () => {
         {/* Profiles Card */}
         <motion.div
           variants={fadeIn('up', 'spring', 0.15, 0.75)}
-          className="glass-card card-lift rounded-3xl p-8"
+          className="glass-card card-lift rounded-3xl p-6 lg:aspect-square flex flex-col"
         >
           <h4 className="mb-6 flex items-center gap-3 text-[20px] font-bold">
             <span
@@ -138,7 +138,7 @@ const ProfileSection = () => {
           <p className="mb-6 text-[14px] text-secondary">
             Connect with me across coding and professional networks.
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="mt-auto grid grid-cols-2 gap-4">
             {socialLinks.map(link => (
               <a
                 key={link.name}
@@ -174,7 +174,7 @@ const ProfileSection = () => {
         {/* CTA Card */}
         <motion.div
           variants={fadeIn('up', 'spring', 0.3, 0.75)}
-          className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl p-8 text-center card-lift"
+          className="relative flex flex-col items-center justify-center overflow-hidden rounded-3xl p-6 text-center card-lift lg:aspect-square"
           style={{
             background: 'linear-gradient(135deg, rgba(0, 240, 255, 0.06) 0%, rgba(255, 0, 110, 0.06) 100%)',
             border: '1px solid rgba(0, 240, 255, 0.15)',

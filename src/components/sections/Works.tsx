@@ -44,7 +44,7 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
           />
 
           <div>
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <img
                 src={image}
                 alt={`${name} preview`}
@@ -150,7 +150,7 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
           />
 
           <div>
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
               <img
                 src={image}
                 alt={`${name} preview`}
