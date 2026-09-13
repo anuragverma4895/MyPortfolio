@@ -22,7 +22,7 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
   return (
     <motion.div
       variants={fadeIn('up', 'spring', index * 0.2, 0.75)}
-      className="w-full sm:w-[calc(50%-14px)] flex"
+      className="w-full flex"
     >
       <Tilt
         glareEnable
@@ -128,7 +128,7 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
   return (
     <motion.div
       variants={fadeIn('up', 'spring', index * 0.2, 0.75)}
-      className="w-full sm:w-[calc(50%-14px)] flex"
+      className="w-full flex"
     >
       <Tilt
         glareEnable
@@ -268,7 +268,7 @@ const Works = () => {
           }}
         />
 
-        <div className="flex flex-wrap gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {projects.map((project, index) => (
             <ProjectCard key={`project-${index}`} index={index} {...project} />
           ))}
@@ -296,7 +296,7 @@ const Works = () => {
           }}
         />
 
-        <div className="flex flex-wrap gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {aimlProjects.map((project, index) => (
             <AimlProjectCard key={`aiml-${index}`} index={index} {...project} />
           ))}

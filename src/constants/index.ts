@@ -31,6 +31,10 @@ import {
   aimlRagPipeline,
   aimlImageGenerator,
   aimlAiCodingAgent,
+  aiMockInterview,
+  aiRevenueRecovery,
+  researchGrantSystem,
+  aimlTextDetectionPlatform,
 } from '../assets';
 
 export const navLinks: TNavLink[] = [
@@ -154,136 +158,121 @@ const technologies: TTechnology[] = [
 /* ─── Full-Stack Development Projects (best first) ─── */
 const projects: TProject[] = [
   {
-    name: 'AI Short Video Ads Generator',
+    name: 'SHOP-EZ',
     description:
-      'AI-driven platform that synthesizes high-converting video advertisements from product imagery and prompt configurations with customizable creative outputs.',
+      'Modern full-stack retail ecosystem with a dedicated FastAPI recommendation engine, Razorpay gateway integration, JWT authentication, and comprehensive administrative dashboards.',
     tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'nodejs',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'ai',
-        color: 'pink-text-gradient',
-      },
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'fastapi', color: 'green-text-gradient' },
+      { name: 'mongodb', color: 'pink-text-gradient' },
     ],
-    image: aiVideoAds,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Short-Video-Ads-Generator',
-    deployLink: 'https://ai-short-video-ads-generator.onrender.com/',
-  },
-  {
-    name: 'Video Calling Interview Platform',
-    description:
-      'Full-stack real-time collaboration platform featuring WebRTC peer video streaming, low-latency Socket.io signaling, synchronized live code editing, and integrated evaluation tooling.',
-    tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'webrtc',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'socketio',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: videoInterview,
-    sourceCodeLink: 'https://github.com/anuragverma4895/Video-Calling-Interview-Platform',
-    deployLink: 'https://video-calling-interview-platform-pjna.onrender.com/',
+    image: shopez,
+    sourceCodeLink: 'https://github.com/anuragverma4895/SHOP-EZ',
+    deployLink: 'https://shop-ez-ob6b.onrender.com/',
   },
   {
     name: 'Payment Processing System',
     description:
       'Production-ready payment gateway architecture inspired by Razorpay, featuring idempotent transaction pipelines, automated retry protocols, and cryptographic webhook simulations.',
     tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'nodejs',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'mongodb',
-        color: 'pink-text-gradient',
-      },
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'nodejs', color: 'green-text-gradient' },
+      { name: 'mongodb', color: 'pink-text-gradient' },
     ],
     image: paymentSystem,
     sourceCodeLink: 'https://github.com/anuragverma4895/payment-processing-system',
     deployLink: 'https://payment-processing-system-theta.vercel.app/',
   },
   {
+    name: 'Video Calling Interview Platform',
+    description:
+      'Full-stack real-time collaboration platform featuring WebRTC peer video streaming, low-latency Socket.io signaling, synchronized live code editing, and integrated evaluation tooling.',
+    tags: [
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'webrtc', color: 'green-text-gradient' },
+      { name: 'socketio', color: 'pink-text-gradient' },
+    ],
+    image: videoInterview,
+    sourceCodeLink: 'https://github.com/anuragverma4895/Video-Calling-Interview-Platform',
+    deployLink: 'https://video-calling-interview-platform-pjna.onrender.com/',
+  },
+  {
+    name: 'AI Mock Interview Platform',
+    description:
+      'AI-powered mock interview platform for resume-based practice, interview questions, feedback, analytics, and video recording.',
+    tags: [
+      { name: 'typescript', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'webrtc', color: 'pink-text-gradient' },
+    ],
+    image: aiMockInterview,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Mock-Interview-Platform',
+    deployLink: '',
+  },
+  {
     name: 'Social Media Platform',
     description:
       'Full-featured MERN social network incorporating AI post creation, JWT-based security, real-time messaging, activity feeds, and fluid interactive UI states.',
     tags: [
-      {
-        name: 'mern',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'ai',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'socketio',
-        color: 'pink-text-gradient',
-      },
+      { name: 'mern', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'socketio', color: 'pink-text-gradient' },
     ],
     image: socialMedia,
     sourceCodeLink: 'https://github.com/anuragverma4895/Social-Media-Platform',
     deployLink: 'https://social-media-platform-six-taupe.vercel.app/',
   },
   {
+    name: 'AI Revenue Recovery Agent',
+    description:
+      'AI-powered revenue recovery agent that detects failed payments, assesses recovery risk, chooses safe recovery actions, retries payments through a secure API, and tracks recovered revenue.',
+    tags: [
+      { name: 'javascript', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'api', color: 'pink-text-gradient' },
+    ],
+    image: aiRevenueRecovery,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Revenue-Recovery-Agent',
+    deployLink: '',
+  },
+  {
+    name: 'AI Short Video Ads Generator',
+    description:
+      'AI-driven platform that synthesizes high-converting video advertisements from product imagery and prompt configurations with customizable creative outputs.',
+    tags: [
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'nodejs', color: 'green-text-gradient' },
+      { name: 'ai', color: 'pink-text-gradient' },
+    ],
+    image: aiVideoAds,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Short-Video-Ads-Generator',
+    deployLink: 'https://ai-short-video-ads-generator.onrender.com/',
+  },
+  {
     name: 'Ecommerce Tech Store',
     description:
       'Full-stack electronics storefront built with React, Node.js, Express & MongoDB featuring responsive catalogs, persistent cart state, and modular RESTful APIs.',
     tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'express',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'mongodb',
-        color: 'pink-text-gradient',
-      },
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'express', color: 'green-text-gradient' },
+      { name: 'mongodb', color: 'pink-text-gradient' },
     ],
     image: techStore,
     sourceCodeLink: 'https://github.com/anuragverma4895/Ecommerce-Tech-Store',
     deployLink: 'https://ecommerce-tech-store-seven.vercel.app/',
   },
   {
-    name: 'SHOP-EZ',
+    name: 'Research Grant Management System',
     description:
-      'Modern full-stack retail ecosystem with a dedicated FastAPI recommendation engine, Razorpay gateway integration, JWT authentication, and comprehensive administrative dashboards.',
+      'Research Grant Management System is a web-based application designed to digitally manage the research grant applications efficiently.',
     tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'fastapi',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'mongodb',
-        color: 'pink-text-gradient',
-      },
+      { name: 'php', color: 'blue-text-gradient' },
+      { name: 'mysql', color: 'green-text-gradient' },
+      { name: 'html/css', color: 'pink-text-gradient' },
     ],
-    image: shopez,
-    sourceCodeLink: 'https://github.com/anuragverma4895/SHOP-EZ',
-    deployLink: 'https://shop-ez-ob6b.onrender.com/',
+    image: researchGrantSystem,
+    sourceCodeLink: 'https://github.com/anuragverma4895/Research-Grant-Management-System',
+    deployLink: '',
   },
 ];
 
@@ -308,6 +297,18 @@ const aimlProjects: TAimlProject[] = [
     ],
     image: aimlAiCodingAgent,
     sourceCodeLink: 'https://github.com/anuragverma4895/AI-Coding-Agent',
+  },
+  {
+    name: 'AI-Generated Text Detection Platform',
+    description:
+      'An advanced AI-powered text authenticity analysis platform. Detects machine-generated content with detailed confidence scoring, sentence-level highlighting, and enterprise-grade reporting.',
+    tags: [
+      { name: 'typescript', color: 'blue-text-gradient' },
+      { name: 'transformers', color: 'green-text-gradient' },
+      { name: 'NLP', color: 'pink-text-gradient' },
+    ],
+    image: aimlTextDetectionPlatform,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Generated-Text-Detection-Platform',
   },
   {
     name: 'RAG Pipeline with Answer Evaluation',
