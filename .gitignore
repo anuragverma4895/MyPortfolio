@@ -45,7 +45,9 @@ coverage/
 # Git (not strictly necessary but fine)
 .git/
 
-# Tools & Custom Scripts
+# Tools & Generated
 .code-review-graph/
-cleanup-unused-files.ps1
-copy-aiml-images.ps1
+.deep-copilot/
+fetch_repos.py
+repos.json
+update_index.py
