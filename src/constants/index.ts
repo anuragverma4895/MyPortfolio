@@ -158,6 +158,45 @@ const technologies: TTechnology[] = [
 /* ─── Full-Stack Development Projects (best first) ─── */
 const projects: TProject[] = [
   {
+    name: 'AI Mock Interview Platform',
+    description:
+      'AI-powered mock interview platform for resume-based practice, interview questions, feedback, analytics, and video recording.',
+    tags: [
+      { name: 'typescript', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'webrtc', color: 'pink-text-gradient' },
+    ],
+    image: aiMockInterview,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Mock-Interview-Platform',
+    deployLink: 'https://ai-mock-interview-platform-cizl.onrender.com/',
+  },
+  {
+    name: 'AI Revenue Recovery Agent',
+    description:
+      'AI-powered revenue recovery agent that detects failed payments, assesses recovery risk, chooses safe recovery actions, retries payments through a secure API, and tracks recovered revenue.',
+    tags: [
+      { name: 'javascript', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'api', color: 'pink-text-gradient' },
+    ],
+    image: aiRevenueRecovery,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Revenue-Recovery-Agent',
+    deployLink: 'https://ai-revenue-recovery-agent-x294.onrender.com/',
+  },
+  {
+    name: 'Research Grant Management System',
+    description:
+      'Research Grant Management System is a web-based application designed to digitally manage the research grant applications efficiently.',
+    tags: [
+      { name: 'php', color: 'blue-text-gradient' },
+      { name: 'mysql', color: 'green-text-gradient' },
+      { name: 'html/css', color: 'pink-text-gradient' },
+    ],
+    image: researchGrantSystem,
+    sourceCodeLink: 'https://github.com/anuragverma4895/Research-Grant-Management-System',
+    deployLink: 'https://grant-management-system.infinityfreeapp.com/',
+  },
+  {
     name: 'SHOP-EZ',
     description:
       'Modern full-stack retail ecosystem with a dedicated FastAPI recommendation engine, Razorpay gateway integration, JWT authentication, and comprehensive administrative dashboards.',
@@ -169,19 +208,6 @@ const projects: TProject[] = [
     image: shopez,
     sourceCodeLink: 'https://github.com/anuragverma4895/SHOP-EZ',
     deployLink: 'https://shop-ez-ob6b.onrender.com/',
-  },
-  {
-    name: 'Payment Processing System',
-    description:
-      'Production-ready payment gateway architecture inspired by Razorpay, featuring idempotent transaction pipelines, automated retry protocols, and cryptographic webhook simulations.',
-    tags: [
-      { name: 'react', color: 'blue-text-gradient' },
-      { name: 'nodejs', color: 'green-text-gradient' },
-      { name: 'mongodb', color: 'pink-text-gradient' },
-    ],
-    image: paymentSystem,
-    sourceCodeLink: 'https://github.com/anuragverma4895/payment-processing-system',
-    deployLink: 'https://payment-processing-system-theta.vercel.app/',
   },
   {
     name: 'Video Calling Interview Platform',
@@ -197,17 +223,17 @@ const projects: TProject[] = [
     deployLink: 'https://video-calling-interview-platform-pjna.onrender.com/',
   },
   {
-    name: 'AI Mock Interview Platform',
+    name: 'Payment Processing System',
     description:
-      'AI-powered mock interview platform for resume-based practice, interview questions, feedback, analytics, and video recording.',
+      'Production-ready payment gateway architecture inspired by Razorpay, featuring idempotent transaction pipelines, automated retry protocols, and cryptographic webhook simulations.',
     tags: [
-      { name: 'typescript', color: 'blue-text-gradient' },
-      { name: 'ai', color: 'green-text-gradient' },
-      { name: 'webrtc', color: 'pink-text-gradient' },
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'nodejs', color: 'green-text-gradient' },
+      { name: 'mongodb', color: 'pink-text-gradient' },
     ],
-    image: aiMockInterview,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Mock-Interview-Platform',
-    deployLink: '',
+    image: paymentSystem,
+    sourceCodeLink: 'https://github.com/anuragverma4895/payment-processing-system',
+    deployLink: 'https://payment-processing-system-theta.vercel.app/',
   },
   {
     name: 'Social Media Platform',
@@ -221,19 +247,6 @@ const projects: TProject[] = [
     image: socialMedia,
     sourceCodeLink: 'https://github.com/anuragverma4895/Social-Media-Platform',
     deployLink: 'https://social-media-platform-six-taupe.vercel.app/',
-  },
-  {
-    name: 'AI Revenue Recovery Agent',
-    description:
-      'AI-powered revenue recovery agent that detects failed payments, assesses recovery risk, chooses safe recovery actions, retries payments through a secure API, and tracks recovered revenue.',
-    tags: [
-      { name: 'javascript', color: 'blue-text-gradient' },
-      { name: 'ai', color: 'green-text-gradient' },
-      { name: 'api', color: 'pink-text-gradient' },
-    ],
-    image: aiRevenueRecovery,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Revenue-Recovery-Agent',
-    deployLink: '',
   },
   {
     name: 'AI Short Video Ads Generator',
@@ -261,19 +274,6 @@ const projects: TProject[] = [
     sourceCodeLink: 'https://github.com/anuragverma4895/Ecommerce-Tech-Store',
     deployLink: 'https://ecommerce-tech-store-seven.vercel.app/',
   },
-  {
-    name: 'Research Grant Management System',
-    description:
-      'Research Grant Management System is a web-based application designed to digitally manage the research grant applications efficiently.',
-    tags: [
-      { name: 'php', color: 'blue-text-gradient' },
-      { name: 'mysql', color: 'green-text-gradient' },
-      { name: 'html/css', color: 'pink-text-gradient' },
-    ],
-    image: researchGrantSystem,
-    sourceCodeLink: 'https://github.com/anuragverma4895/Research-Grant-Management-System',
-    deployLink: '',
-  },
 ];
 
 export type TAimlProject = {
@@ -282,6 +282,7 @@ export type TAimlProject = {
   tags: { name: string; color: string }[];
   image: string;
   sourceCodeLink: string;
+  deployLink?: string;
 };
 
 /* ─── AI/ML & Data Science Projects (best first) ─── */
