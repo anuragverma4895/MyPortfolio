@@ -14,7 +14,6 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
   index,
   name,
   description,
-  tags,
   image,
   sourceCodeLink,
   deployLink,
@@ -34,7 +33,7 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
         tiltMaxAngleY={15}
         className="w-full"
       >
-        <div className="glass-card card-lift group w-full h-full rounded-2xl p-5 relative overflow-hidden flex flex-col justify-between">
+        <div className="glass-card card-lift group w-full h-full rounded-2xl p-4 relative overflow-hidden flex flex-col">
           {/* Hover glow */}
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
@@ -95,21 +94,10 @@ const ProjectCard: React.FC<{ index: number } & TProject> = ({
               </div>
             </div>
 
-            <div className="mt-5 relative z-10">
-              <h3 className="text-[22px] sm:text-[24px] font-bold text-white group-hover:gradient-text-cyan transition-colors duration-300">{name}</h3>
+            <div className="mt-3 relative z-10">
+              <h3 className="text-[18px] sm:text-[20px] font-bold text-white group-hover:gradient-text-cyan transition-colors duration-300">{name}</h3>
               <p className="text-secondary mt-2 text-[13px] leading-[20px] line-clamp-3">{description}</p>
             </div>
-          </div>
-
-          <div className="mt-4 flex flex-wrap gap-2 relative z-10 pt-2">
-            {tags.map(tag => (
-              <span
-                key={tag.name}
-                className={`text-[13px] font-medium px-3 py-1 rounded-full border border-white/[0.06] bg-white/[0.03]`}
-              >
-                <span className={tag.color}>#{tag.name}</span>
-              </span>
-            ))}
           </div>
         </div>
       </Tilt>
@@ -121,7 +109,6 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
   index,
   name,
   description,
-  tags,
   image,
   sourceCodeLink,
 }) => {
@@ -140,7 +127,7 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
         tiltMaxAngleY={20}
         className="w-full"
       >
-        <div className="aiml-card card-lift group w-full h-full rounded-2xl p-5 relative overflow-hidden flex flex-col justify-between">
+        <div className="aiml-card card-lift group w-full h-full rounded-2xl p-4 relative overflow-hidden flex flex-col">
           {/* Animated background glow */}
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
@@ -174,21 +161,10 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
               </div>
             </div>
 
-            <div className="mt-5 relative z-10">
-              <h3 className="text-[22px] sm:text-[24px] font-bold text-white group-hover:text-pink-200 transition-colors duration-300">{name}</h3>
+            <div className="mt-3 relative z-10">
+              <h3 className="text-[18px] sm:text-[20px] font-bold text-white group-hover:text-pink-200 transition-colors duration-300">{name}</h3>
               <p className="text-secondary mt-2 text-[13px] leading-[20px] line-clamp-3">{description}</p>
             </div>
-          </div>
-
-          <div className="mt-4 flex flex-wrap gap-2 relative z-10 pt-2">
-            {tags.map(tag => (
-              <span
-                key={tag.name}
-                className={`text-[13px] font-medium px-3 py-1 rounded-full border border-white/[0.06] bg-white/[0.03]`}
-              >
-                <span className={tag.color}>#{tag.name}</span>
-              </span>
-            ))}
           </div>
         </div>
       </Tilt>
