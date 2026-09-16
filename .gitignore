@@ -48,6 +48,7 @@ coverage/
 # Tools & Generated
 .code-review-graph/
 .deep-copilot/
+.kilo/
 fetch_repos.py
 repos.json
 update_index.py

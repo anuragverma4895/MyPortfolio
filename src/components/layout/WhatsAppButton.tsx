@@ -23,7 +23,7 @@ const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
       initial={{ x: 80, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1.7, duration: 0.8, ease: 'easeOut' }}
-      className="fixed right-5 bottom-36 z-30 hidden md:flex"
+      className="fixed right-5 bottom-44 z-30 hidden md:flex"
     >
       <motion.button
         type="button"

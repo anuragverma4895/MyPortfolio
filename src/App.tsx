@@ -21,6 +21,7 @@ const SocialSidebar = lazy(() => import('./components/layout/SocialSidebar'));
 const ResumeButton = lazy(() => import('./components/layout/ResumeButton'));
 const WhatsAppButton = lazy(() => import('./components/layout/WhatsAppButton'));
 const CustomCursor = lazy(() => import('./components/layout/CustomCursor'));
+const AiAssistant = lazy(() => import('./components/layout/AiAssistant'));
 
 const overlaySectionIds = ['about', 'skills', 'education', 'achievements', 'work', 'contact'] as const;
 type OverlaySectionId = (typeof overlaySectionIds)[number];
@@ -253,6 +254,7 @@ const App = () => {
             <SocialSidebar />
             <WhatsAppButton onClick={() => openOverlaySection('contact')} />
             <ResumeButton />
+            <AiAssistant />
           </Suspense>
 
           <div
@@ -273,6 +275,7 @@ const App = () => {
         <SocialSidebar />
         <WhatsAppButton onClick={() => openOverlaySection('contact')} />
         <ResumeButton />
+        <AiAssistant />
       </Suspense>
     </div>
   );
