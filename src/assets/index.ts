@@ -36,9 +36,9 @@ import aimlSalesAnalysis from './aiml-sales-analysis.png';
 import aimlRagPipeline from './aiml-rag-pipeline.png';
 import aimlImageGenerator from './aiml-image-generator.png';
 import aimlAiCodingAgent from './aiml-ai-coding-agent.png';
-import aiMockInterview from './ai-mock-interview.jpg';
-import aiRevenueRecovery from './ai-revenue-recovery.jpg';
-import researchGrantSystem from './research-grant-system.jpg';
+import aiMockInterview from './prepverse-mock-interview.png';
+import aiRevenueRecovery from './revenue-recovery-agent.png';
+import researchGrantSystem from './rgms-grant-management.png';
 import aimlTextDetectionPlatform from './aiml-text-detection-platform.jpg';
 
 export {

@@ -237,7 +237,7 @@ const Achievements = () => {
           <span className="gradient-text-cyan">KEY HIGHLIGHTS</span>
         </motion.h4>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" style={{ gridAutoRows: '1fr' }}>
           {achievements.map((item, i) => (
             <motion.div
               key={item.title}
