@@ -158,58 +158,6 @@ const technologies: TTechnology[] = [
 /* ─── Full-Stack Development Projects (best first) ─── */
 const projects: TProject[] = [
   {
-    name: 'AI Mock Interview Platform',
-    description:
-      'AI-powered mock interview platform for resume-based practice, interview questions, feedback, analytics, and video recording.',
-    tags: [
-      { name: 'typescript', color: 'blue-text-gradient' },
-      { name: 'ai', color: 'green-text-gradient' },
-      { name: 'webrtc', color: 'pink-text-gradient' },
-    ],
-    image: aiMockInterview,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Mock-Interview-Platform',
-    deployLink: 'https://ai-mock-interview-platform-cizl.onrender.com/',
-  },
-  {
-    name: 'AI Revenue Recovery Agent',
-    description:
-      'AI-powered revenue recovery agent that detects failed payments, assesses recovery risk, chooses safe recovery actions, retries payments through a secure API, and tracks recovered revenue.',
-    tags: [
-      { name: 'javascript', color: 'blue-text-gradient' },
-      { name: 'ai', color: 'green-text-gradient' },
-      { name: 'api', color: 'pink-text-gradient' },
-    ],
-    image: aiRevenueRecovery,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Revenue-Recovery-Agent',
-    deployLink: 'https://ai-revenue-recovery-agent-x294.onrender.com/',
-  },
-  {
-    name: 'Research Grant Management System',
-    description:
-      'Research Grant Management System is a web-based application designed to digitally manage the research grant applications efficiently.',
-    tags: [
-      { name: 'php', color: 'blue-text-gradient' },
-      { name: 'mysql', color: 'green-text-gradient' },
-      { name: 'html/css', color: 'pink-text-gradient' },
-    ],
-    image: researchGrantSystem,
-    sourceCodeLink: 'https://github.com/anuragverma4895/Research-Grant-Management-System',
-    deployLink: 'https://grant-management-system.infinityfreeapp.com/',
-  },
-  {
-    name: 'SHOP-EZ',
-    description:
-      'Modern full-stack retail ecosystem with a dedicated FastAPI recommendation engine, Razorpay gateway integration, JWT authentication, and comprehensive administrative dashboards.',
-    tags: [
-      { name: 'react', color: 'blue-text-gradient' },
-      { name: 'fastapi', color: 'green-text-gradient' },
-      { name: 'mongodb', color: 'pink-text-gradient' },
-    ],
-    image: shopez,
-    sourceCodeLink: 'https://github.com/anuragverma4895/SHOP-EZ',
-    deployLink: 'https://shop-ez-ob6b.onrender.com/',
-  },
-  {
     name: 'Video Calling Interview Platform',
     description:
       'Full-stack real-time collaboration platform featuring WebRTC peer video streaming, low-latency Socket.io signaling, synchronized live code editing, and integrated evaluation tooling.',
@@ -234,6 +182,45 @@ const projects: TProject[] = [
     image: paymentSystem,
     sourceCodeLink: 'https://github.com/anuragverma4895/payment-processing-system',
     deployLink: 'https://payment-processing-system-theta.vercel.app/',
+  },
+  {
+    name: 'SHOP-EZ',
+    description:
+      'Modern full-stack retail ecosystem with a dedicated FastAPI recommendation engine, Razorpay gateway integration, JWT authentication, and comprehensive administrative dashboards.',
+    tags: [
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'fastapi', color: 'green-text-gradient' },
+      { name: 'mongodb', color: 'pink-text-gradient' },
+    ],
+    image: shopez,
+    sourceCodeLink: 'https://github.com/anuragverma4895/SHOP-EZ',
+    deployLink: 'https://shop-ez-ob6b.onrender.com/',
+  },
+  {
+    name: 'AI Mock Interview Platform',
+    description:
+      'AI-powered mock interview platform for resume-based practice, interview questions, feedback, analytics, and video recording.',
+    tags: [
+      { name: 'typescript', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'webrtc', color: 'pink-text-gradient' },
+    ],
+    image: aiMockInterview,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Mock-Interview-Platform',
+    deployLink: 'https://ai-mock-interview-platform-cizl.onrender.com/',
+  },
+  {
+    name: 'AI Revenue Recovery Agent',
+    description:
+      'AI-powered revenue recovery agent that detects failed payments, assesses recovery risk, chooses safe recovery actions, retries payments through a secure API, and tracks recovered revenue.',
+    tags: [
+      { name: 'javascript', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'api', color: 'pink-text-gradient' },
+    ],
+    image: aiRevenueRecovery,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Revenue-Recovery-Agent',
+    deployLink: 'https://ai-revenue-recovery-agent-x294.onrender.com/',
   },
   {
     name: 'Social Media Platform',
@@ -274,6 +261,19 @@ const projects: TProject[] = [
     sourceCodeLink: 'https://github.com/anuragverma4895/Ecommerce-Tech-Store',
     deployLink: 'https://ecommerce-tech-store-seven.vercel.app/',
   },
+  {
+    name: 'Research Grant Management System',
+    description:
+      'Research Grant Management System is a web-based application designed to digitally manage the research grant applications efficiently.',
+    tags: [
+      { name: 'php', color: 'blue-text-gradient' },
+      { name: 'mysql', color: 'green-text-gradient' },
+      { name: 'html/css', color: 'pink-text-gradient' },
+    ],
+    image: researchGrantSystem,
+    sourceCodeLink: 'https://github.com/anuragverma4895/Research-Grant-Management-System',
+    deployLink: 'https://grant-management-system.infinityfreeapp.com/',
+  },
 ];
 
 export type TAimlProject = {
@@ -288,18 +288,6 @@ export type TAimlProject = {
 /* ─── AI/ML & Data Science Projects (best first) ─── */
 const aimlProjects: TAimlProject[] = [
   {
-    name: 'AI Coding Agent',
-    description:
-      'Autonomous agent engineered in Python that explores repositories, parses architecture, and implements user specifications via Gemini LLM with a 6-stage ReAct loop and safe tool execution.',
-    tags: [
-      { name: 'LLM', color: 'blue-text-gradient' },
-      { name: 'ReAct', color: 'green-text-gradient' },
-      { name: 'agents', color: 'pink-text-gradient' },
-    ],
-    image: aimlAiCodingAgent,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Coding-Agent',
-  },
-  {
     name: 'AI-Generated Text Detection Platform',
     description:
       'An advanced AI-powered text authenticity analysis platform. Detects machine-generated content with detailed confidence scoring, sentence-level highlighting, and enterprise-grade reporting.',
@@ -310,6 +298,30 @@ const aimlProjects: TAimlProject[] = [
     ],
     image: aimlTextDetectionPlatform,
     sourceCodeLink: 'https://github.com/anuragverma4895/AI-Generated-Text-Detection-Platform',
+  },
+  {
+    name: 'AI-Generated Text Detection',
+    description:
+      'Deep learning browser extension and server pipeline utilizing transformer NLP models for real-time classification of AI-synthesized text across web pages, documents, and direct input.',
+    tags: [
+      { name: 'NLP', color: 'blue-text-gradient' },
+      { name: 'transformers', color: 'green-text-gradient' },
+      { name: 'deep-learning', color: 'pink-text-gradient' },
+    ],
+    image: aimlTextDetection,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-generated-text-detection',
+  },
+  {
+    name: 'AI Coding Agent',
+    description:
+      'Autonomous agent engineered in Python that explores repositories, parses architecture, and implements user specifications via Gemini LLM with a 6-stage ReAct loop and safe tool execution.',
+    tags: [
+      { name: 'LLM', color: 'blue-text-gradient' },
+      { name: 'ReAct', color: 'green-text-gradient' },
+      { name: 'agents', color: 'pink-text-gradient' },
+    ],
+    image: aimlAiCodingAgent,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Coding-Agent',
   },
   {
     name: 'RAG Pipeline with Answer Evaluation',
@@ -323,18 +335,6 @@ const aimlProjects: TAimlProject[] = [
     image: aimlRagPipeline,
     sourceCodeLink:
       'https://github.com/anuragverma4895/RAG-Pipeline-with-Automated-Answer-Evaluation',
-  },
-  {
-    name: 'AI-Generated Text Detection',
-    description:
-      'Deep learning browser extension and server pipeline utilizing transformer NLP models for real-time classification of AI-synthesized text across web pages, documents, and direct input.',
-    tags: [
-      { name: 'NLP', color: 'blue-text-gradient' },
-      { name: 'transformers', color: 'green-text-gradient' },
-      { name: 'deep-learning', color: 'pink-text-gradient' },
-    ],
-    image: aimlTextDetection,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-generated-text-detection',
   },
   {
     name: 'AI Image Generator',

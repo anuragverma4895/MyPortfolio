@@ -242,7 +242,7 @@ const Achievements = () => {
             <motion.div
               key={item.title}
               variants={fadeIn('up', 'spring', 0.1 + i * 0.08, 0.6)}
-              className="glass-card card-lift group relative overflow-hidden rounded-2xl p-6"
+              className="glass-card card-lift group relative overflow-hidden rounded-2xl p-6 flex flex-col h-full"
             >
               {/* Top glow on hover */}
               <div
@@ -252,7 +252,7 @@ const Achievements = () => {
                 }}
               />
 
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col h-full flex-1">
                 {/* Type badge + icon */}
                 <div className="flex items-center justify-between mb-3">
                   <span className="flex items-center justify-center h-11 w-11 rounded-xl" style={{
@@ -302,7 +302,7 @@ const Achievements = () => {
 
                 {/* Clickable links for projects */}
                 {(item.link || item.sourceCode) && (
-                  <div className="mt-3 flex items-center gap-3">
+                  <div className="mt-auto pt-3 flex items-center gap-3">
                     {item.link && (
                       <a
                         href={item.link}
