@@ -14,6 +14,7 @@ import SectionDivider from './components/atoms/SectionDivider';
 // Lazy load heavy components
 const SkillsBallSection = lazy(() => import('./components/sections/SkillsBallSection'));
 const StarsCanvas = lazy(() => import('./components/canvas/Stars'));
+const EarthCanvas = lazy(() => import('./components/canvas/Earth'));
 const ProfileSection = lazy(() => import('./components/sections/ProfileSection'));
 const Contact = lazy(() => import('./components/sections/Contact'));
 const SocialSidebar = lazy(() => import('./components/layout/SocialSidebar'));
@@ -168,47 +169,58 @@ const App = () => {
   const isContactOverlay = activeOverlaySection === 'contact';
 
   return (
-    <div
-      className={`relative z-0 noise-bg theme-transition`}
-      style={{ background: 'var(--bg-primary)' }}
-    >
+    <div className={`relative z-0 theme-transition`}>
+      {/* Fixed Background Layer */}
+      <div 
+        className="fixed inset-0 z-[-1] noise-bg theme-transition pointer-events-none" 
+        style={{ background: 'var(--bg-primary)' }}
+      >
+        <Suspense fallback={null}>
+          <StarsCanvas />
+        </Suspense>
+        <div className="absolute inset-0 m-auto flex h-[80vh] w-full max-w-[800px] items-center justify-center opacity-20">
+          <Suspense fallback={null}>
+            <EarthCanvas />
+          </Suspense>
+        </div>
+      </div>
+
       {/* Custom cursor (desktop only) */}
       <Suspense fallback={null}>
         <CustomCursor />
       </Suspense>
 
-      <div className="bg-hero-pattern bg-cover bg-center bg-no-repeat">
+      <div className="relative z-[50]">
         <Navbar activeSection={activeOverlaySection} />
+      </div>
+
+      <div className="bg-hero-pattern bg-cover bg-center bg-no-repeat relative z-10">
         <Hero />
       </div>
 
-      <About />
+      <div className="relative z-10">
+        <About />
 
-      <SectionDivider />
+        <SectionDivider />
 
-      <Suspense fallback={<SectionFallback height="32rem" />}>
-        <SkillsBallSection skills={technologies} />
-      </Suspense>
-
-      <SectionDivider />
-
-      <Education />
-
-      <SectionDivider />
-
-      <Achievements />
-
-      <SectionDivider />
-
-      <Works />
-
-      <SectionDivider />
-
-      <div className="relative z-0">
-        <Suspense fallback={null}>
-          <StarsCanvas />
+        <Suspense fallback={<SectionFallback height="32rem" />}>
+          <SkillsBallSection skills={technologies} />
         </Suspense>
-        {/* Profile section (contact info, profiles, CTA) */}
+
+        <SectionDivider />
+
+        <Education />
+
+        <SectionDivider />
+
+        <Achievements />
+
+        <SectionDivider />
+
+        <Works />
+
+        <SectionDivider />
+
         <Suspense fallback={<SectionFallback height="28rem" />}>
           <ProfileSection />
         </Suspense>
@@ -223,9 +235,17 @@ const App = () => {
           aria-modal="true"
           aria-label={`${activeOverlaySection} page`}
         >
-          <Suspense fallback={null}>
-            <StarsCanvas />
-          </Suspense>
+          {/* Overlay Background Layer */}
+          <div className="absolute inset-0 z-[-1] noise-bg pointer-events-none">
+            <Suspense fallback={null}>
+              <StarsCanvas />
+            </Suspense>
+            <div className="absolute inset-0 m-auto flex h-[80vh] w-full max-w-[800px] items-center justify-center opacity-20">
+              <Suspense fallback={null}>
+                <EarthCanvas />
+              </Suspense>
+            </div>
+          </div>
 
           <Navbar activeSection={activeOverlaySection} />
 
