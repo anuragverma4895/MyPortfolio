@@ -110,12 +110,7 @@ function renderMarkdownLite(text: string) {
 // ── Main Component ─────────────────────────────────────────
 const AiAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      role: 'assistant',
-      content: "Hi! I am Anurag's personal AI assistant. Ask me anything about his skills, projects, achievements, or background.",
-    }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -204,7 +199,7 @@ const AiAssistant = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const showSuggestions = messages.length === 1 && !isLoading;
+  const showSuggestions = messages.length === 0 && !isLoading;
 
   return (
     <>
@@ -213,9 +208,18 @@ const AiAssistant = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2.0, duration: 0.5, type: 'spring', stiffness: 200 }}
-        className="fixed right-5 bottom-24 z-[100] md:flex"
+        className="fixed right-5 bottom-24 z-[100] flex flex-col items-end gap-3"
         style={{ display: isOpen ? 'none' : undefined }}
       >
+        <motion.div
+          initial={{ opacity: 0, y: 10, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ delay: 3.5, duration: 0.4, type: 'spring' }}
+          className="bg-black/80 backdrop-blur-md text-white text-sm px-4 py-2 rounded-2xl shadow-xl border border-white/10 relative mr-1 pointer-events-none"
+        >
+          Anurag's Personal AI Assistant ✨
+          <div className="absolute -bottom-1.5 right-4 w-3 h-3 bg-black/80 border-b border-r border-white/10 rotate-45"></div>
+        </motion.div>
         <motion.button
           type="button"
           onClick={toggleChat}
@@ -268,6 +272,31 @@ const AiAssistant = () => {
 
             {/* Messages */}
             <div ref={chatContainerRef} className="ai-chat-messages">
+              {/* Welcome message */}
+              {showSuggestions && (
+                <div className="ai-chat-welcome">
+                  <div className="ai-chat-welcome-icon">
+                    <SparkleIcon className="h-8 w-8" />
+                  </div>
+                  <p className="ai-chat-welcome-text">
+                    Hi! I'm Anurag's AI assistant. Ask me anything about his skills, projects,
+                    achievements, or background.
+                  </p>
+                  <div className="ai-chat-suggestions">
+                    {STARTER_SUGGESTIONS.map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        onClick={() => handleSuggestionClick(s)}
+                        className="ai-chat-suggestion-chip"
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Message bubbles */}
               {messages.map((msg, i) => (
                 <motion.div
@@ -287,29 +316,6 @@ const AiAssistant = () => {
                   </div>
                 </motion.div>
               ))}
-
-              {/* Starter Suggestions */}
-              {showSuggestions && (
-                <motion.div 
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="ai-chat-welcome"
-                >
-                  <div className="ai-chat-suggestions" style={{ marginTop: '0.5rem' }}>
-                    {STARTER_SUGGESTIONS.map((s) => (
-                      <button
-                        key={s}
-                        type="button"
-                        onClick={() => handleSuggestionClick(s)}
-                        className="ai-chat-suggestion-chip"
-                      >
-                        {s}
-                      </button>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
 
               {/* Loading indicator */}
               {isLoading && (
