@@ -247,8 +247,8 @@ const AiAssistant = () => {
                   <SparkleIcon className="h-4 w-4" />
                 </div>
                 <div>
-                  <h3 className="ai-chat-header-title">Ask Anurag's AI</h3>
-                  <p className="ai-chat-header-subtitle">Portfolio Assistant</p>
+                  <h3 className="ai-chat-header-title">Anurag AI</h3>
+                  <p className="ai-chat-header-subtitle">Personal Assistant</p>
                 </div>
               </div>
               <button
@@ -270,7 +270,7 @@ const AiAssistant = () => {
                     <SparkleIcon className="h-8 w-8" />
                   </div>
                   <p className="ai-chat-welcome-text">
-                    Hi! I'm Anurag's AI assistant. Ask me anything about his skills, projects,
+                    Hi, I am Anurag AI personal assistant. Ask me anything about his skills, projects,
                     achievements, or background.
                   </p>
                   <div className="ai-chat-suggestions">
