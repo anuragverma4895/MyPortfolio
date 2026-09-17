@@ -208,17 +208,17 @@ const AiAssistant = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2.0, duration: 0.5, type: 'spring', stiffness: 200 }}
-        className="fixed right-5 bottom-24 z-[100] flex flex-col items-end gap-3"
+        className="fixed right-5 bottom-24 z-[100] flex flex-row items-center gap-3"
         style={{ display: isOpen ? 'none' : undefined }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 10, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          initial={{ opacity: 0, x: 10, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ delay: 3.5, duration: 0.4, type: 'spring' }}
-          className="bg-black/80 backdrop-blur-md text-white text-sm px-4 py-2 rounded-2xl shadow-xl border border-white/10 relative mr-1 pointer-events-none"
+          className="bg-black/80 backdrop-blur-md text-white text-sm px-4 py-2 rounded-2xl shadow-xl border border-white/10 relative pointer-events-none whitespace-nowrap"
         >
           Anurag's Personal AI Assistant ✨
-          <div className="absolute -bottom-1.5 right-4 w-3 h-3 bg-black/80 border-b border-r border-white/10 rotate-45"></div>
+          <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3 h-3 bg-black/80 border-t border-r border-white/10 rotate-45"></div>
         </motion.div>
         <motion.button
           type="button"
