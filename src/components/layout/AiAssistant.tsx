@@ -110,7 +110,12 @@ function renderMarkdownLite(text: string) {
 // ── Main Component ─────────────────────────────────────────
 const AiAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [messages, setMessages] = useState<ChatMessage[]>([
+    {
+      role: 'assistant',
+      content: "Hi! I am Anurag's personal AI assistant. Ask me anything about his skills, projects, achievements, or background.",
+    }
+  ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -199,7 +204,7 @@ const AiAssistant = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const showSuggestions = messages.length === 0 && !isLoading;
+  const showSuggestions = messages.length === 1 && !isLoading;
 
   return (
     <>
@@ -247,8 +252,8 @@ const AiAssistant = () => {
                   <SparkleIcon className="h-4 w-4" />
                 </div>
                 <div>
-                  <h3 className="ai-chat-header-title">Anurag AI</h3>
-                  <p className="ai-chat-header-subtitle">Personal Assistant</p>
+                  <h3 className="ai-chat-header-title">Ask Anurag's AI</h3>
+                  <p className="ai-chat-header-subtitle">Portfolio Assistant</p>
                 </div>
               </div>
               <button
@@ -262,32 +267,6 @@ const AiAssistant = () => {
             </div>
 
             {/* Messages */}
-            <div ref={chatContainerRef} className="ai-chat-messages">
-              {/* Welcome message */}
-              {showSuggestions && (
-                <div className="ai-chat-welcome">
-                  <div className="ai-chat-welcome-icon">
-                    <SparkleIcon className="h-8 w-8" />
-                  </div>
-                  <p className="ai-chat-welcome-text">
-                    Hi, I am Anurag AI personal assistant. Ask me anything about his skills, projects,
-                    achievements, or background.
-                  </p>
-                  <div className="ai-chat-suggestions">
-                    {STARTER_SUGGESTIONS.map((s) => (
-                      <button
-                        key={s}
-                        type="button"
-                        onClick={() => handleSuggestionClick(s)}
-                        className="ai-chat-suggestion-chip"
-                      >
-                        {s}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               {/* Message bubbles */}
               {messages.map((msg, i) => (
                 <motion.div
@@ -307,6 +286,29 @@ const AiAssistant = () => {
                   </div>
                 </motion.div>
               ))}
+
+              {/* Starter Suggestions */}
+              {showSuggestions && (
+                <motion.div 
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="ai-chat-welcome"
+                >
+                  <div className="ai-chat-suggestions" style={{ marginTop: '0.5rem' }}>
+                    {STARTER_SUGGESTIONS.map((s) => (
+                      <button
+                        key={s}
+                        type="button"
+                        onClick={() => handleSuggestionClick(s)}
+                        className="ai-chat-suggestion-chip"
+                      >
+                        {s}
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
 
               {/* Loading indicator */}
               {isLoading && (
