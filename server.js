@@ -221,6 +221,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // ── Start Server ───────────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`\x1b[36m✔  AI Assistant server running on http://localhost:${PORT}\x1b[0m`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`\x1b[36m✔  AI Assistant server running on http://localhost:${PORT}\x1b[0m`);
+  });
+}
+
+export default app;
