@@ -181,7 +181,7 @@ export default async function handler(req, res) {
       : [];
 
     const model = genAI.getGenerativeModel({
-      model: 'gemini-3.6-flash',
+      model: 'gemini-flash-latest',
       systemInstruction: ANURAG_SYSTEM_PROMPT,
     });
 
