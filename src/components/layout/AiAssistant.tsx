@@ -267,6 +267,7 @@ const AiAssistant = () => {
             </div>
 
             {/* Messages */}
+            <div ref={chatContainerRef} className="ai-chat-messages">
               {/* Message bubbles */}
               {messages.map((msg, i) => (
                 <motion.div
