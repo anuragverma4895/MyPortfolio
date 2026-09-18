@@ -164,10 +164,24 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: 'Message is required.' });
     }
 
+    // Set SSE headers
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    // Important for Vercel Serverless Functions to stream immediately:
+    res.setHeader('X-Accel-Buffering', 'no');
+    if (res.flushHeaders) {
+      res.flushHeaders();
+    }
+
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
     if (!GEMINI_API_KEY) {
       console.error('GEMINI_API_KEY is missing');
+      if (res.headersSent) {
+        res.write(`data: ${JSON.stringify({ error: 'Server configuration error.' })}\n\n`);
+        return res.end();
+      }
       return res.status(500).json({ error: 'Server configuration error.' });
     }
 
@@ -186,10 +200,17 @@ export default async function handler(req, res) {
     });
 
     const chat = model.startChat({ history: chatHistory });
-    const result = await chat.sendMessage(message.trim());
-    const reply = result.response.text();
+    const result = await chat.sendMessageStream(message.trim());
 
-    res.status(200).json({ reply });
+    for await (const chunk of result.stream) {
+      const text = chunk.text();
+      if (text) {
+        res.write(`data: ${JSON.stringify({ text })}\n\n`);
+      }
+    }
+
+    res.write(`data: [DONE]\n\n`);
+    res.end();
   } catch (err) {
     console.error('Gemini API error:', err);
 
@@ -199,6 +220,11 @@ export default async function handler(req, res) {
         ? 'Too many requests. Please wait a moment and try again.'
         : 'Something went wrong while generating a response. Please try again.';
 
-    res.status(statusCode).json({ error: errorMessage });
+    if (res.headersSent) {
+      res.write(`data: ${JSON.stringify({ error: errorMessage })}\n\n`);
+      res.end();
+    } else {
+      res.status(statusCode).json({ error: errorMessage });
+    }
   }
 }
