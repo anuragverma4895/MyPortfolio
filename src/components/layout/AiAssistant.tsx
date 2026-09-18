@@ -185,38 +185,43 @@ const AiAssistant = () => {
         }
 
         // Read the SSE stream
+        let buffer = '';
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
 
-          const chunk = decoder.decode(value, { stream: true });
-          const lines = chunk.split('\n');
+          buffer += decoder.decode(value, { stream: true });
 
-          for (const line of lines) {
-            const trimmedLine = line.trim();
-            if (!trimmedLine || !trimmedLine.startsWith('data: ')) continue;
+          let eventEndIndex;
+          while ((eventEndIndex = buffer.indexOf('\n\n')) >= 0) {
+            const eventStr = buffer.slice(0, eventEndIndex);
+            buffer = buffer.slice(eventEndIndex + 2);
 
-            const data = trimmedLine.slice(6); // Remove 'data: '
+            const lines = eventStr.split('\n');
+            for (const line of lines) {
+              const trimmedLine = line.trim();
+              if (!trimmedLine || !trimmedLine.startsWith('data: ')) continue;
 
-            if (data === '[DONE]') {
-              // Stream completed
-              break;
-            }
+              const data = trimmedLine.slice(6); // Remove 'data: '
 
-            try {
-              const parsed = JSON.parse(data);
-              if (parsed.error) {
-                throw new Error(parsed.error);
+              if (data === '[DONE]') {
+                break; // Stream completed
               }
-              if (parsed.text) {
-                fullText += parsed.text;
-                setStreamingContent(fullText);
-              }
-            } catch (parseErr) {
-              // Skip unparseable lines (not JSON)
-              if ((parseErr as Error).message?.includes('Too many requests') || 
-                  (parseErr as Error).message?.includes('Something went wrong')) {
-                throw parseErr;
+
+              try {
+                const parsed = JSON.parse(data);
+                if (parsed.error) {
+                  throw new Error(parsed.error);
+                }
+                if (parsed.text) {
+                  fullText += parsed.text;
+                  setStreamingContent(fullText);
+                }
+              } catch (parseErr) {
+                if ((parseErr as Error).message?.includes('Too many requests') || 
+                    (parseErr as Error).message?.includes('Something went wrong')) {
+                  throw parseErr;
+                }
               }
             }
           }
