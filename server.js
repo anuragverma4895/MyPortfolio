@@ -219,10 +219,13 @@ app.post('/api/chat', async (req, res) => {
     console.error('Gemini API error:', err);
 
     const statusCode = err?.status || 500;
-    const errorMessage =
-      statusCode === 429
-        ? 'Too many requests. Please wait a moment and try again.'
-        : 'Something went wrong while generating a response. Please try again.';
+    let errorMessage = 'Something went wrong while generating a response. Please try again.';
+    
+    if (statusCode === 429) {
+      errorMessage = 'API rate limit exceeded. Please wait a moment and try again.';
+    } else if (statusCode === 503) {
+      errorMessage = 'Gemini API is currently overloaded due to high demand. Please try again in a few minutes.';
+    }
 
     // If headers already sent (streaming started), send error as SSE
     if (res.headersSent) {
