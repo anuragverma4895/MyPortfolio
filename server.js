@@ -172,7 +172,7 @@ PROFESSIONAL SUMMARY
 
 Anurag is a B.Tech CSE (AI) student at NIET graduating in 2027. He is a Full-Stack Software Engineer specializing in the MERN stack, with strong expertise in AI/ML, system design, and competitive programming. He builds production-grade applications that are fast, secure, and scalable. He is open to internships and software engineering opportunities.`;
 
-// ── Chat Endpoint ──────────────────────────────────────────
+// ── Chat Endpoint (SSE Streaming) ──────────────────────────
 app.post('/api/chat', async (req, res) => {
   try {
     const { message, history } = req.body;
@@ -180,6 +180,13 @@ app.post('/api/chat', async (req, res) => {
     if (!message || typeof message !== 'string' || !message.trim()) {
       return res.status(400).json({ error: 'Message is required.' });
     }
+
+    // Set SSE headers
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+    res.setHeader('X-Accel-Buffering', 'no');
+    res.flushHeaders();
 
     // Build conversation history for Gemini (limit to last 20 exchanges)
     const chatHistory = Array.isArray(history)
@@ -190,15 +197,24 @@ app.post('/api/chat', async (req, res) => {
       : [];
 
     const model = genAI.getGenerativeModel({
-      model: 'gemini-flash-latest',
+      model: 'gemini-2.0-flash',
       systemInstruction: ANURAG_SYSTEM_PROMPT,
     });
 
     const chat = model.startChat({ history: chatHistory });
-    const result = await chat.sendMessage(message.trim());
-    const reply = result.response.text();
+    const result = await chat.sendMessageStream(message.trim());
 
-    res.json({ reply });
+    // Stream each chunk as an SSE event
+    for await (const chunk of result.stream) {
+      const text = chunk.text();
+      if (text) {
+        res.write(`data: ${JSON.stringify({ text })}\n\n`);
+      }
+    }
+
+    // Signal stream completion
+    res.write(`data: [DONE]\n\n`);
+    res.end();
   } catch (err) {
     console.error('Gemini API error:', err);
 
@@ -208,7 +224,13 @@ app.post('/api/chat', async (req, res) => {
         ? 'Too many requests. Please wait a moment and try again.'
         : 'Something went wrong while generating a response. Please try again.';
 
-    res.status(statusCode).json({ error: errorMessage });
+    // If headers already sent (streaming started), send error as SSE
+    if (res.headersSent) {
+      res.write(`data: ${JSON.stringify({ error: errorMessage })}\n\n`);
+      res.end();
+    } else {
+      res.status(statusCode).json({ error: errorMessage });
+    }
   }
 });
 

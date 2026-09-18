@@ -2561,6 +2561,26 @@ img {
   }
 }
 
+/* ── Streaming Cursor ────────────────────────────── */
+.ai-chat-cursor {
+  display: inline-block;
+  width: 5px;
+  height: 15px;
+  background-color: #fff;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: ai-cursor-blink 1s step-end infinite;
+}
+
+@keyframes ai-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+[data-theme="light"] .ai-chat-cursor {
+  background-color: #000;
+}
+
 /* ── Error State ─────────────────────────────────── */
 .ai-chat-error {
   display: flex;

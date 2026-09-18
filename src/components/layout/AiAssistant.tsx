@@ -113,6 +113,8 @@ const AiAssistant = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
+  const [streamingContent, setStreamingContent] = useState('');
   const [error, setError] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -126,7 +128,7 @@ const AiAssistant = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages, isLoading, scrollToBottom]);
+  }, [messages, isLoading, isStreaming, streamingContent, scrollToBottom]);
 
   // Focus input when chat opens
   useEffect(() => {
@@ -135,14 +137,15 @@ const AiAssistant = () => {
     }
   }, [isOpen]);
 
-  // Send message to backend
+  // Send message to backend with SSE streaming
   const sendMessage = useCallback(
     async (text: string) => {
       const trimmed = text.trim();
-      if (!trimmed || isLoading) return;
+      if (!trimmed || isLoading || isStreaming) return;
 
       setError(null);
       setInput('');
+      setStreamingContent('');
 
       const userMsg: ChatMessage = { role: 'user', content: trimmed };
       setMessages((prev) => [...prev, userMsg]);
@@ -169,21 +172,74 @@ const AiAssistant = () => {
           throw new Error(data?.error || `Server error (${res.status})`);
         }
 
-        const data = await res.json();
+        // Switch from loading dots to streaming mode
+        setIsLoading(false);
+        setIsStreaming(true);
+
+        const reader = res.body?.getReader();
+        const decoder = new TextDecoder();
+        let fullText = '';
+
+        if (!reader) {
+          throw new Error('Stream not available');
+        }
+
+        // Read the SSE stream
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          const chunk = decoder.decode(value, { stream: true });
+          const lines = chunk.split('\n');
+
+          for (const line of lines) {
+            const trimmedLine = line.trim();
+            if (!trimmedLine || !trimmedLine.startsWith('data: ')) continue;
+
+            const data = trimmedLine.slice(6); // Remove 'data: '
+
+            if (data === '[DONE]') {
+              // Stream completed
+              break;
+            }
+
+            try {
+              const parsed = JSON.parse(data);
+              if (parsed.error) {
+                throw new Error(parsed.error);
+              }
+              if (parsed.text) {
+                fullText += parsed.text;
+                setStreamingContent(fullText);
+              }
+            } catch (parseErr) {
+              // Skip unparseable lines (not JSON)
+              if ((parseErr as Error).message?.includes('Too many requests') || 
+                  (parseErr as Error).message?.includes('Something went wrong')) {
+                throw parseErr;
+              }
+            }
+          }
+        }
+
+        // Streaming done — add final message to history
         const assistantMsg: ChatMessage = {
           role: 'assistant',
-          content: data.reply || 'Sorry, I could not generate a response.',
+          content: fullText || 'Sorry, I could not generate a response.',
         };
         setMessages((prev) => [...prev, assistantMsg]);
+        setStreamingContent('');
       } catch (err) {
         const errorMessage =
           err instanceof Error ? err.message : 'Failed to get response. Please try again.';
         setError(errorMessage);
       } finally {
         setIsLoading(false);
+        setIsStreaming(false);
+        setStreamingContent('');
       }
     },
-    [messages, isLoading]
+    [messages, isLoading, isStreaming]
   );
 
   const handleSubmit = (e: FormEvent) => {
@@ -331,6 +387,24 @@ const AiAssistant = () => {
                 </motion.div>
               )}
 
+              {/* Streaming response bubble */}
+              {isStreaming && streamingContent && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.25 }}
+                  className="ai-chat-bubble ai-chat-bubble-ai"
+                >
+                  <span className="ai-chat-bubble-avatar">
+                    <SparkleIcon className="h-3.5 w-3.5" />
+                  </span>
+                  <div className="ai-chat-bubble-content">
+                    {renderMarkdownLite(streamingContent)}
+                    <span className="ai-chat-cursor" />
+                  </div>
+                </motion.div>
+              )}
+
               {/* Error */}
               {error && (
                 <motion.div
@@ -354,14 +428,14 @@ const AiAssistant = () => {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about Anurag..."
                 className="ai-chat-input"
-                disabled={isLoading}
+                disabled={isLoading || isStreaming}
                 maxLength={500}
                 aria-label="Type your message"
                 id="ai-chat-input"
               />
               <button
                 type="submit"
-                disabled={isLoading || !input.trim()}
+                disabled={isLoading || isStreaming || !input.trim()}
                 className="ai-chat-send-btn"
                 aria-label="Send message"
                 id="ai-chat-send"
