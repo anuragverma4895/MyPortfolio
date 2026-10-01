@@ -60,47 +60,42 @@ DSA / COMPETITIVE PROGRAMMING
 FULL-STACK DEVELOPMENT PROJECTS
 ═══════════════════════════════════════
 
-1. Modern 3D Full-Stack Developer Portfolio
-   - Tech: React, Three.js, Tailwind CSS
-   - Features: Interactive 3D UI, responsive design, dark/light theme, floating elements
-
-2. Video Calling Interview Platform
-   - Tech: React, WebRTC, Socket.io
-   - Features: Real-time peer video streaming, low-latency signaling, synchronized live code editing, evaluation tooling
-
-3. Payment Processing System
-   - Tech: React, Node.js, Express.js, MongoDB (MERN)
-   - Features: User authentication, orders, payments (UPI, Net Banking, Cards, Wallets), webhooks, idempotency, failure recovery, transaction tracking, admin dashboard
-
-4. AI Mock Interview Platform
+1. AI Mock Interview Platform
    - Tech: TypeScript, AI, WebRTC
    - Features: Resume-based practice, AI-generated interview questions, feedback, analytics, video recording
 
-5. SHOP-EZ
-   - Tech: React, FastAPI, MongoDB
-   - Features: Full-stack retail ecosystem, AI recommendation engine, Razorpay integration, JWT auth, admin dashboards
+2. Payment Processing System
+   - Tech: React, Node.js, Express.js, MongoDB (MERN)
+   - Features: User authentication, orders, payments (UPI, Net Banking, Cards, Wallets), webhooks, idempotency, failure recovery, transaction tracking, admin dashboard
 
-6. Social Media Platform
-   - Tech: MERN stack, AI, Socket.io
-   - Features: AI post creation, JWT security, real-time messaging, activity feeds
+3. Video Calling Interview Platform
+   - Tech: React, WebRTC, Socket.io
+   - Features: Real-time peer video streaming, low-latency signaling, synchronized live code editing, evaluation tooling
 
-7. AI Revenue Recovery Agent
+4. AI Revenue Recovery Agent
    - Tech: JavaScript, AI, API integration
    - Features: AI-powered failed payment detection, recovery risk assessment, safe recovery actions, payment retry via API, revenue tracking
 
-8. AI Short Video Ads Generator
+5. AI Short Video Ads Generator
    - Tech: React, Node.js, Gemini API, FFmpeg
    - Features: AI-driven platform generating high-converting video advertisements from product imagery and prompts
 
-9. Ecommerce Tech Store
+6. SHOP-EZ
+   - Tech: React, FastAPI, MongoDB
+   - Features: Full-stack retail ecosystem, AI recommendation engine, Razorpay integration, JWT auth, admin dashboards
+
+7. Social Media Platform
+   - Tech: MERN stack, AI, Socket.io
+   - Features: AI post creation, JWT security, real-time messaging, activity feeds
+
+8. Ecommerce Tech Store
    - Tech: React, Express.js, MongoDB
    - Features: Electronics storefront, responsive catalogs, persistent cart, RESTful APIs
 
-10. Research Grant Management System
+9. Research Grant Management System
     - Tech: PHP, MySQL, phpMyAdmin
     - Features: Database-driven web application for managing research grant applications
 
-═══════════════════════════════════════
 AI/ML & DATA SCIENCE PROJECTS
 ═══════════════════════════════════════
 
@@ -108,13 +103,13 @@ AI/ML & DATA SCIENCE PROJECTS
    - Tech: Python, Gemini LLM, ReAct loop
    - Features: Autonomous agent that explores repos, parses architecture, implements specs via LLM
 
-2. AI-Generated Text Detection Platform
-   - Tech: TypeScript, Transformers, NLP
-   - Features: Machine-generated content detection, confidence scoring, sentence-level highlighting
-
-3. RAG Pipeline with Automated Answer Evaluation
+2. RAG Pipeline with Automated Answer Evaluation
    - Tech: LLM, RAG, Vector DB
    - Features: Enterprise-grade RAG pipeline with vector search + LLM synthesis
+
+3. AI-Generated Text Detection Platform
+   - Tech: TypeScript, Transformers, NLP
+   - Features: Machine-generated content detection, confidence scoring, sentence-level highlighting
 
 4. AI-Generated Text Detection (Browser Extension)
    - Tech: NLP, Transformers, Deep Learning
@@ -136,7 +131,6 @@ AI/ML & DATA SCIENCE PROJECTS
    - Tech: Python, Data Analysis, Visualization
    - Features: Trend identification, revenue forecasting, cohort segmentation
 
-═══════════════════════════════════════
 PROFESSIONAL SUMMARY
 ═══════════════════════════════════════
 
