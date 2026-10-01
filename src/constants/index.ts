@@ -158,17 +158,17 @@ const technologies: TTechnology[] = [
 /* ─── Full-Stack Development Projects (best first) ─── */
 const projects: TProject[] = [
   {
-    name: 'Video Calling Interview Platform',
+    name: 'AI Mock Interview Platform',
     description:
-      'Full-stack real-time collaboration platform featuring WebRTC peer video streaming, low-latency Socket.io signaling, synchronized live code editing, and integrated evaluation tooling.',
+      'AI-powered mock interview platform for resume-based practice, interview questions, feedback, analytics, and video recording.',
     tags: [
-      { name: 'react', color: 'blue-text-gradient' },
-      { name: 'webrtc', color: 'green-text-gradient' },
-      { name: 'socketio', color: 'pink-text-gradient' },
+      { name: 'typescript', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'webrtc', color: 'pink-text-gradient' },
     ],
-    image: videoInterview,
-    sourceCodeLink: 'https://github.com/anuragverma4895/Video-Calling-Interview-Platform',
-    deployLink: 'https://video-calling-interview-platform-pjna.onrender.com/',
+    image: aiMockInterview,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Mock-Interview-Platform',
+    deployLink: 'https://ai-mock-interview-platform-cizl.onrender.com/',
   },
   {
     name: 'Payment Processing System',
@@ -184,43 +184,17 @@ const projects: TProject[] = [
     deployLink: 'https://payment-processing-system-theta.vercel.app/',
   },
   {
-    name: 'AI Mock Interview Platform',
+    name: 'Video Calling Interview Platform',
     description:
-      'AI-powered mock interview platform for resume-based practice, interview questions, feedback, analytics, and video recording.',
-    tags: [
-      { name: 'typescript', color: 'blue-text-gradient' },
-      { name: 'ai', color: 'green-text-gradient' },
-      { name: 'webrtc', color: 'pink-text-gradient' },
-    ],
-    image: aiMockInterview,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Mock-Interview-Platform',
-    deployLink: 'https://ai-mock-interview-platform-cizl.onrender.com/',
-  },
-  {
-    name: 'SHOP-EZ',
-    description:
-      'Modern full-stack retail ecosystem with a dedicated FastAPI recommendation engine, Razorpay gateway integration, JWT authentication, and comprehensive administrative dashboards.',
+      'Full-stack real-time collaboration platform featuring WebRTC peer video streaming, low-latency Socket.io signaling, synchronized live code editing, and integrated evaluation tooling.',
     tags: [
       { name: 'react', color: 'blue-text-gradient' },
-      { name: 'fastapi', color: 'green-text-gradient' },
-      { name: 'mongodb', color: 'pink-text-gradient' },
-    ],
-    image: shopez,
-    sourceCodeLink: 'https://github.com/anuragverma4895/SHOP-EZ',
-    deployLink: 'https://shop-ez-ob6b.onrender.com/',
-  },
-  {
-    name: 'Social Media Platform',
-    description:
-      'Full-featured MERN social network incorporating AI post creation, JWT-based security, real-time messaging, activity feeds, and fluid interactive UI states.',
-    tags: [
-      { name: 'mern', color: 'blue-text-gradient' },
-      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'webrtc', color: 'green-text-gradient' },
       { name: 'socketio', color: 'pink-text-gradient' },
     ],
-    image: socialMedia,
-    sourceCodeLink: 'https://github.com/anuragverma4895/Social-Media-Platform',
-    deployLink: 'https://social-media-platform-six-taupe.vercel.app/',
+    image: videoInterview,
+    sourceCodeLink: 'https://github.com/anuragverma4895/Video-Calling-Interview-Platform',
+    deployLink: 'https://video-calling-interview-platform-pjna.onrender.com/',
   },
   {
     name: 'AI Revenue Recovery Agent',
@@ -249,6 +223,32 @@ const projects: TProject[] = [
     deployLink: 'https://ai-short-video-ads-generator.onrender.com/',
   },
   {
+    name: 'SHOP-EZ',
+    description:
+      'Modern full-stack retail ecosystem with a dedicated FastAPI recommendation engine, Razorpay gateway integration, JWT authentication, and comprehensive administrative dashboards.',
+    tags: [
+      { name: 'react', color: 'blue-text-gradient' },
+      { name: 'fastapi', color: 'green-text-gradient' },
+      { name: 'mongodb', color: 'pink-text-gradient' },
+    ],
+    image: shopez,
+    sourceCodeLink: 'https://github.com/anuragverma4895/SHOP-EZ',
+    deployLink: 'https://shop-ez-ob6b.onrender.com/',
+  },
+  {
+    name: 'Social Media Platform',
+    description:
+      'Full-featured MERN social network incorporating AI post creation, JWT-based security, real-time messaging, activity feeds, and fluid interactive UI states.',
+    tags: [
+      { name: 'mern', color: 'blue-text-gradient' },
+      { name: 'ai', color: 'green-text-gradient' },
+      { name: 'socketio', color: 'pink-text-gradient' },
+    ],
+    image: socialMedia,
+    sourceCodeLink: 'https://github.com/anuragverma4895/Social-Media-Platform',
+    deployLink: 'https://social-media-platform-six-taupe.vercel.app/',
+  },
+  {
     name: 'Ecommerce Tech Store',
     description:
       'Full-stack electronics storefront built with React, Node.js, Express & MongoDB featuring responsive catalogs, persistent cart state, and modular RESTful APIs.',
@@ -274,8 +274,6 @@ const projects: TProject[] = [
     sourceCodeLink: 'https://github.com/anuragverma4895/Research-Grant-Management-System',
     deployLink: 'https://grant-management-system.infinityfreeapp.com/',
   },
-];
-
 export type TAimlProject = {
   name: string;
   description: string;
@@ -300,18 +298,6 @@ const aimlProjects: TAimlProject[] = [
     sourceCodeLink: 'https://github.com/anuragverma4895/AI-Coding-Agent',
   },
   {
-    name: 'AI-Generated Text Detection Platform',
-    description:
-      'An advanced AI-powered text authenticity analysis platform. Detects machine-generated content with detailed confidence scoring, sentence-level highlighting, and enterprise-grade reporting.',
-    tags: [
-      { name: 'typescript', color: 'blue-text-gradient' },
-      { name: 'transformers', color: 'green-text-gradient' },
-      { name: 'NLP', color: 'pink-text-gradient' },
-    ],
-    image: aimlTextDetectionPlatform,
-    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Generated-Text-Detection-Platform',
-  },
-  {
     name: 'RAG Pipeline with Answer Evaluation',
     description:
       'Enterprise-grade Retrieval-Augmented Generation pipeline combining vector search with LLM synthesis, featuring automated benchmark metrics for contextual relevance and factual accuracy.',
@@ -323,6 +309,18 @@ const aimlProjects: TAimlProject[] = [
     image: aimlRagPipeline,
     sourceCodeLink:
       'https://github.com/anuragverma4895/RAG-Pipeline-with-Automated-Answer-Evaluation',
+  },
+  {
+    name: 'AI-Generated Text Detection Platform',
+    description:
+      'An advanced AI-powered text authenticity analysis platform. Detects machine-generated content with detailed confidence scoring, sentence-level highlighting, and enterprise-grade reporting.',
+    tags: [
+      { name: 'typescript', color: 'blue-text-gradient' },
+      { name: 'transformers', color: 'green-text-gradient' },
+      { name: 'NLP', color: 'pink-text-gradient' },
+    ],
+    image: aimlTextDetectionPlatform,
+    sourceCodeLink: 'https://github.com/anuragverma4895/AI-Generated-Text-Detection-Platform',
   },
   {
     name: 'AI-Generated Text Detection',
@@ -372,6 +370,4 @@ const aimlProjects: TAimlProject[] = [
     image: aimlSalesAnalysis,
     sourceCodeLink: 'https://github.com/anuragverma4895/Sales-Data-Analysis-Business-Insights',
   },
-];
-
 export { services, technologies, projects, aimlProjects };
