@@ -246,7 +246,7 @@ const projects: TProject[] = [
     ],
     image: socialMedia,
     sourceCodeLink: 'https://github.com/anuragverma4895/Social-Media-Platform',
-    deployLink: 'https://social-media-platform-six-taupe.vercel.app/',
+    deployLink: 'https://social-media-platformm.onrender.com/',
   },
   {
     name: 'Ecommerce Tech Store',
