@@ -48,8 +48,8 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
 const codingStats = [
   {
     platform: 'LeetCode',
-    stat: '750+',
-    label: 'Problems Solved',
+    stat: '1900+',
+    label: 'Rating • Knight',
     accent: '#f59e0b',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -94,26 +94,17 @@ const codingStats = [
 
 const achievements = [
   {
-    title: 'AI-Generated Text Detection',
-    description: 'Engineered a transformer NLP browser extension and server pipeline delivering real-time classification and confidence metrics.',
+    title: 'AI Mock Interview Platform',
+    description: 'Built an AI-powered interview platform with resume-based practice, AI-generated questions, feedback, analytics, and video recording.',
     type: 'Project',
-    link: 'https://github.com/anuragverma4895/AI-generated-text-detection',
+    link: 'https://ai-mock-interview-platform-cizl.onrender.com/',
+    sourceCode: 'https://github.com/anuragverma4895/AI-Mock-Interview-Platform',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a855f7" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.4V11h3a3 3 0 0 1 3 3v1.6c1.2.6 2 1.9 2 3.4a4 4 0 0 1-8 0c0-1.5.8-2.8 2-3.4V14a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v1.6c1.2.6 2 1.9 2 3.4a4 4 0 0 1-8 0c0-1.5.8-2.8 2-3.4V14a3 3 0 0 1 3-3h3V9.4C7.8 8.8 7 7.5 7 6a4 4 0 0 1 5-3.9" />
-      </svg>
-    ),
-  },
-  {
-    title: 'Real-Time Interview Platform',
-    description: 'Built a full-stack WebRTC interview suite with synchronized code editing, automated code runner, and WebSockets chat.',
-    type: 'Project',
-    link: 'https://video-calling-interview-platform-pjna.onrender.com/',
-    sourceCode: 'https://github.com/anuragverma4895/Video-Calling-Interview-Platform',
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="m22 8-6 4 6 4V8Z" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+        <rect x="3" y="4" width="18" height="14" rx="2" />
+        <path d="M8 22h8" />
+        <path d="M12 18v4" />
+        <path d="M8 9h8M8 13h5" />
       </svg>
     ),
   },
@@ -127,6 +118,19 @@ const achievements = [
       <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
         <line x1="1" y1="10" x2="23" y2="10" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Video Calling Interview Platform',
+    description: 'Built a full-stack WebRTC interview suite with synchronized code editing, automated code runner, and WebSockets chat.',
+    type: 'Project',
+    link: 'https://video-calling-interview-platform-pjna.onrender.com/',
+    sourceCode: 'https://github.com/anuragverma4895/Video-Calling-Interview-Platform',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m22 8-6 4 6 4V8Z" />
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
       </svg>
     ),
   },
