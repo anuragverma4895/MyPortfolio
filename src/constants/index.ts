@@ -274,6 +274,8 @@ const projects: TProject[] = [
     sourceCodeLink: 'https://github.com/anuragverma4895/Research-Grant-Management-System',
     deployLink: 'https://grant-management-system.infinityfreeapp.com/',
   },
+];
+
 export type TAimlProject = {
   name: string;
   description: string;
@@ -370,4 +372,6 @@ const aimlProjects: TAimlProject[] = [
     image: aimlSalesAnalysis,
     sourceCodeLink: 'https://github.com/anuragverma4895/Sales-Data-Analysis-Business-Insights',
   },
+];
+
 export { services, technologies, projects, aimlProjects };
