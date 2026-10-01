@@ -181,7 +181,7 @@ const projects: TProject[] = [
     ],
     image: paymentSystem,
     sourceCodeLink: 'https://github.com/anuragverma4895/payment-processing-system',
-    deployLink: 'https://payment-processing-system-theta.vercel.app/',
+    deployLink: 'https://payment-processing-system-sz7e.onrender.com/',
   },
   {
     name: 'Video Calling Interview Platform',
