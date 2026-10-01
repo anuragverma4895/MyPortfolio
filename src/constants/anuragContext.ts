@@ -66,58 +66,53 @@ DSA / COMPETITIVE PROGRAMMING
 FULL-STACK DEVELOPMENT PROJECTS
 ═══════════════════════════════════════
 
-1. Modern 3D Full-Stack Developer Portfolio
-   - Tech: React, Three.js, Tailwind CSS
-   - Features: Interactive 3D UI, responsive design, dark/light theme, floating elements
+1. AI Mock Interview Platform
+   - Tech: TypeScript, AI, WebRTC
+   - Features: Resume-based practice, AI-generated interview questions, feedback, analytics, video recording
+   - Live: ai-mock-interview-platform-cizl.onrender.com
 
-2. Video Calling Interview Platform
-   - Tech: React, WebRTC, Socket.io
-   - Features: Real-time peer video streaming, low-latency signaling, synchronized live code editing, evaluation tooling
-   - Live: video-calling-interview-platform-pjna.onrender.com
-
-3. Payment Processing System
+2. Payment Processing System
    - Tech: React, Node.js, Express.js, MongoDB (MERN)
    - Features: User authentication, orders, payments (UPI, Net Banking, Cards, Wallets), webhooks, idempotency, failure recovery, transaction tracking, admin dashboard
    - Inspired by Razorpay architecture
    - Live: payment-processing-system-theta.vercel.app
 
-4. AI Mock Interview Platform
-   - Tech: TypeScript, AI, WebRTC
-   - Features: Resume-based practice, AI-generated interview questions, feedback, analytics, video recording
-   - Live: ai-mock-interview-platform-cizl.onrender.com
+3. Video Calling Interview Platform
+   - Tech: React, WebRTC, Socket.io
+   - Features: Real-time peer video streaming, low-latency signaling, synchronized live code editing, evaluation tooling
+   - Live: video-calling-interview-platform-pjna.onrender.com
 
-5. SHOP-EZ
-   - Tech: React, FastAPI, MongoDB
-   - Features: Full-stack retail ecosystem, AI recommendation engine, Razorpay integration, JWT auth, admin dashboards
-   - Live: shop-ez-ob6b.onrender.com
-
-6. Social Media Platform
-   - Tech: MERN stack, AI, Socket.io
-   - Features: AI post creation, JWT security, real-time messaging, activity feeds
-   - Live: social-media-platform-six-taupe.vercel.app
-
-7. AI Revenue Recovery Agent
+4. AI Revenue Recovery Agent
    - Tech: JavaScript, AI, API integration
    - Features: AI-powered failed payment detection, recovery risk assessment, safe recovery actions, payment retry via API, revenue tracking
    - Integrated with the Payment Processing System
    - Live: ai-revenue-recovery-agent-x294.onrender.com
 
-8. AI Short Video Ads Generator
+5. AI Short Video Ads Generator
    - Tech: React, Node.js, Gemini API, FFmpeg
    - Features: AI-driven platform generating high-converting video advertisements from product imagery and prompts
    - Live: ai-short-video-ads-generator.onrender.com
 
-9. Ecommerce Tech Store
+6. SHOP-EZ
+   - Tech: React, FastAPI, MongoDB
+   - Features: Full-stack retail ecosystem, AI recommendation engine, Razorpay integration, JWT auth, admin dashboards
+   - Live: shop-ez-ob6b.onrender.com
+
+7. Social Media Platform
+   - Tech: MERN stack, AI, Socket.io
+   - Features: AI post creation, JWT security, real-time messaging, activity feeds
+   - Live: social-media-platform-six-taupe.vercel.app
+
+8. Ecommerce Tech Store
    - Tech: React, Express.js, MongoDB
    - Features: Electronics storefront, responsive catalogs, persistent cart, RESTful APIs
    - Live: ecommerce-tech-store-seven.vercel.app
 
-10. Research Grant Management System
+9. Research Grant Management System
     - Tech: PHP, MySQL, phpMyAdmin
     - Features: Database-driven web application for managing research grant applications
     - Live: grant-management-system.infinityfreeapp.com
 
-═══════════════════════════════════════
 AI/ML & DATA SCIENCE PROJECTS
 ═══════════════════════════════════════
 
@@ -125,13 +120,13 @@ AI/ML & DATA SCIENCE PROJECTS
    - Tech: Python, Gemini LLM, ReAct loop
    - Features: Autonomous agent that explores repositories, parses architecture, implements specifications via LLM with 6-stage ReAct loop and safe tool execution
 
-2. AI-Generated Text Detection Platform
-   - Tech: TypeScript, Transformers, NLP
-   - Features: Machine-generated content detection, confidence scoring, sentence-level highlighting, enterprise reporting
-
-3. RAG Pipeline with Automated Answer Evaluation
+2. RAG Pipeline with Automated Answer Evaluation
    - Tech: LLM, RAG, Vector DB
    - Features: Enterprise-grade RAG pipeline with vector search + LLM synthesis, automated benchmark metrics for relevance and accuracy
+
+3. AI-Generated Text Detection Platform
+   - Tech: TypeScript, Transformers, NLP
+   - Features: Machine-generated content detection, confidence scoring, sentence-level highlighting, enterprise reporting
 
 4. AI-Generated Text Detection (Browser Extension)
    - Tech: NLP, Transformers, Deep Learning
@@ -153,7 +148,6 @@ AI/ML & DATA SCIENCE PROJECTS
    - Tech: Python, Data Analysis, Visualization
    - Features: Trend identification, revenue forecasting, cohort segmentation
 
-═══════════════════════════════════════
 PROFESSIONAL SUMMARY
 ═══════════════════════════════════════
 
