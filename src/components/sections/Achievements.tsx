@@ -146,7 +146,7 @@ const achievements = [
   },
   {
     title: 'Competitive Programming',
-    description: '1200+ DSA problems solved across platforms (750+ LeetCode, 3-Star CodeChef) demonstrating deep algorithmic foundations.',
+    description: '1200+ DSA problems solved across platforms, with a 1900+ LeetCode rating and Knight Badge plus 1600+ CodeChef rating (3-Star).',
     type: 'Achievement',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
