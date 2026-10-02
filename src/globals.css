@@ -2842,3 +2842,156 @@ img {
   background: var(--accent-purple);
 }
 
+
+
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE — CLEAN WHITE SURFACES + TYPOGRAPHY
+   ═══════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  --surface-white: #ffffff;
+  --surface-border: rgba(15, 23, 42, 0.08);
+  --surface-shadow: 0 18px 50px rgba(15, 23, 42, 0.055);
+  --heading-black: #09090b;
+  --body-black: #171717;
+  --body-muted: #52525b;
+}
+
+/* The page itself stays a fixed, pure-white canvas. */
+[data-theme="light"] html,
+[data-theme="light"] body,
+[data-theme="light"] #root {
+  background: #ffffff !important;
+  color: #09090b !important;
+}
+
+/* Each section sits above the fixed white canvas like a clean content surface. */
+[data-theme="light"] .light-section-surface {
+  background: #ffffff !important;
+  border: 1px solid var(--surface-border);
+  border-radius: 28px;
+  box-shadow: var(--surface-shadow);
+  margin-top: 24px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+/* Give the hero its own clean surface without changing the dark theme. */
+[data-theme="light"] .bg-hero-pattern {
+  background: #ffffff !important;
+}
+
+/* Better hierarchy: strong headings, comfortable body copy, less visual noise. */
+[data-theme="light"] .hero-headline {
+  color: var(--heading-black) !important;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+}
+
+[data-theme="light"] .hero-name-gradient {
+  background: linear-gradient(90deg, #09090b 0%, #18181b 45%, #27272a 100%) !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: none !important;
+}
+
+[data-theme="light"] .hero-role-title {
+  color: #18181b !important;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+[data-theme="light"] .hero-subtitle {
+  color: var(--body-muted) !important;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.85;
+  letter-spacing: 0.005em;
+}
+
+[data-theme="light"] .hero-skill-pill {
+  color: #18181b !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.10) !important;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.055);
+}
+
+[data-theme="light"] .hero-skill-pill:hover {
+  color: #09090b !important;
+  border-color: rgba(8, 145, 178, 0.35) !important;
+  box-shadow: 0 10px 24px rgba(8, 145, 178, 0.10);
+}
+
+[data-theme="light"] .hero-cta-secondary {
+  color: #09090b !important;
+  border-color: rgba(15, 23, 42, 0.16) !important;
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .hero-cta-secondary:hover {
+  border-color: rgba(8, 145, 178, 0.45) !important;
+  background: #fafafa !important;
+}
+
+[data-theme="light"] .about-intro-text {
+  color: var(--body-black) !important;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  line-height: 1.9 !important;
+  letter-spacing: 0.002em;
+}
+
+[data-theme="light"] .about-intro-text .text-white {
+  color: var(--body-black) !important;
+}
+
+/* Keep section descriptions readable instead of washed-out white-alpha text. */
+[data-theme="light"] .text-secondary,
+[data-theme="light"] [class*="text-white/"] {
+  color: var(--body-muted) !important;
+}
+
+/* Section headings and project titles stay genuinely black. */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4 {
+  color: var(--heading-black);
+}
+
+[data-theme="light"] .glass-card,
+[data-theme="light"] .aiml-card,
+[data-theme="light"] .service-card-inner,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .skill-pill {
+  background: #ffffff !important;
+}
+
+/* Preserve colored accents while keeping the typography clean. */
+[data-theme="light"] .gradient-text-cyan,
+[data-theme="light"] .gradient-text-hero {
+  -webkit-text-fill-color: initial;
+  background: none;
+  color: #0891b2 !important;
+}
+
+[data-theme="light"] .about-tech-tag {
+  color: #0e7490 !important;
+  background: rgba(8, 145, 178, 0.06) !important;
+}
+
+/* No decorative canvas is allowed to tint the pure-white base. */
+[data-theme="light"] canvas {
+  display: none !important;
+}
+
+/* Slightly more deliberate reveal while scrolling. */
+[data-theme="light"] .light-section-surface {
+  will-change: transform, opacity;
+}
