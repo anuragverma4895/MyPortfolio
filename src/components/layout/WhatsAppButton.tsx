@@ -23,7 +23,7 @@ const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
       initial={{ x: 80, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1.7, duration: 0.8, ease: 'easeOut' }}
-      className="fixed right-5 bottom-44 z-30 hidden md:flex"
+      className="fixed right-5 bottom-[164px] z-30 hidden md:flex"
     >
       <motion.button
         type="button"
@@ -31,7 +31,7 @@ const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
         aria-label="Open contact form on WhatsApp"
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.94 }}
-        className="group relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full text-white transition-all duration-300"
+        className="group relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full text-white transition-all duration-300"
         style={{
           background: '#00C853',
           boxShadow: '0 8px 26px rgba(0, 200, 83, 0.34), 0 0 0 1px rgba(255, 255, 255, 0.16)',
@@ -49,7 +49,10 @@ const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
             background: 'radial-gradient(circle at 34% 24%, rgba(255,255,255,0.26), rgba(255,255,255,0) 42%)',
           }}
         />
-        <span className="relative z-10 flex h-9 w-9 items-center justify-center">
+        <span className="pointer-events-none absolute right-[68px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold text-black opacity-0 shadow-lg transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-1">
+          WhatsApp
+        </span>
+        <span className="relative z-10 flex h-8 w-8 items-center justify-center">
           <WhatsAppIcon />
         </span>
       </motion.button>
