@@ -3628,3 +3628,29 @@ img {
     0 6px 12px rgba(0, 0, 0, 0.09),
     0 14px 28px rgba(0, 0, 0, 0.08) !important;
 }
+
+
+/* Fixed Resume CTA — always visible in light mode. */
+[data-theme="light"] .resume-floating-button {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 1px solid #555b63 !important;
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.12),
+    0 14px 30px rgba(0, 0, 0, 0.10) !important;
+}
+
+[data-theme="light"] .resume-floating-button:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #333333 !important;
+  box-shadow:
+    0 7px 16px rgba(0, 0, 0, 0.16),
+    0 18px 36px rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme="light"] .resume-floating-button span,
+[data-theme="light"] .resume-floating-button svg {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
