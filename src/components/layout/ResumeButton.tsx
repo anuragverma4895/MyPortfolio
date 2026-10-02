@@ -20,13 +20,13 @@ const ResumeButton = () => {
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.8, ease: 'easeOut' }}
-      className="fixed right-4 bottom-8 z-30 hidden md:flex"
+      className="fixed right-5 bottom-6 z-30 hidden md:flex"
     >
       <motion.button
         onClick={handleResumeClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="resume-floating-button group flex items-center gap-3 px-5 py-3 rounded-xl border border-white/[0.08] text-secondary hover:text-white transition-all duration-300 cursor-pointer relative overflow-hidden animate-glow-pulse"
+        className="resume-floating-button group relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-white/[0.08] text-secondary transition-all duration-300 cursor-pointer"
         style={{
           background: 'rgba(12, 10, 30, 0.7)',
           backdropFilter: 'blur(12px)',
@@ -40,13 +40,9 @@ const ResumeButton = () => {
           e.currentTarget.style.boxShadow = '';
         }}
       >
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            background: 'linear-gradient(135deg, rgba(0, 240, 255, 0.08), rgba(255, 0, 110, 0.05))',
-          }}
-        />
-        <span className="text-[13px] font-bold tracking-[0.2em] uppercase relative z-10">Resume</span>
+        <span className="pointer-events-none absolute right-[68px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold tracking-wide text-black opacity-0 shadow-lg transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-1">
+          Resume
+        </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="14"
@@ -57,7 +53,7 @@ const ResumeButton = () => {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="group-hover:translate-y-0.5 transition-transform duration-300 relative z-10"
+          className="relative z-10 transition-transform duration-200 group-hover:translate-y-0.5"
         >
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
           <polyline points="14 2 14 8 20 8" />
