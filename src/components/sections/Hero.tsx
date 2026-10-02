@@ -320,7 +320,7 @@ const Hero = () => {
                 download="Anurag-Verma-Resume.pdf"
                 className="hero-cta-secondary cursor-pointer"
               >
-                Download Resume
+                Resume
               </a>
               <a
                 href="https://github.com/anuragverma4895"
