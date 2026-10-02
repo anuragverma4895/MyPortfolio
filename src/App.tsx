@@ -20,7 +20,6 @@ const Contact = lazy(() => import('./components/sections/Contact'));
 const SocialSidebar = lazy(() => import('./components/layout/SocialSidebar'));
 const ResumeButton = lazy(() => import('./components/layout/ResumeButton'));
 const WhatsAppButton = lazy(() => import('./components/layout/WhatsAppButton'));
-const CustomCursor = lazy(() => import('./components/layout/CustomCursor'));
 const AiAssistant = lazy(() => import('./components/layout/AiAssistant'));
 
 const overlaySectionIds = ['about', 'skills', 'education', 'achievements', 'work', 'contact'] as const;
@@ -186,10 +185,6 @@ const App = () => {
         </div>
       </div>
 
-      {/* Custom cursor (desktop only) */}
-      <Suspense fallback={null}>
-        <CustomCursor />
-      </Suspense>
 
       <div className="relative z-[50]">
         <Navbar activeSection={activeOverlaySection} />
