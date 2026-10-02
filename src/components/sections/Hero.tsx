@@ -315,6 +315,21 @@ const Hero = () => {
               <a href="#contact" className="hero-cta-secondary cursor-pointer">
                 Get In Touch
               </a>
+              <a
+                href="/resume.pdf"
+                download="Anurag-Verma-Resume.pdf"
+                className="hero-cta-secondary cursor-pointer"
+              >
+                Download Resume
+              </a>
+              <a
+                href="https://www.linkedin.com/in/anuragverma4895/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta-secondary cursor-pointer"
+              >
+                Let's Connect
+              </a>
             </motion.div>
           </div>
         </div>
