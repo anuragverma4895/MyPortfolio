@@ -23,8 +23,11 @@ const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
       initial={{ x: 80, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1.7, duration: 0.8, ease: 'easeOut' }}
-      className="fixed right-5 bottom-[164px] z-30 hidden md:flex"
+      className="whatsapp-fab-group fixed right-5 bottom-[164px] z-30 hidden md:flex"
     >
+        <span className="whatsapp-fab-tooltip pointer-events-none absolute right-[68px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold text-black opacity-0 shadow-lg transition-all duration-200 -translate-x-1">
+          Connect
+        </span>
       <motion.button
         type="button"
         onClick={onClick}
@@ -49,9 +52,6 @@ const WhatsAppButton = ({ onClick }: WhatsAppButtonProps) => {
             background: 'radial-gradient(circle at 34% 24%, rgba(255,255,255,0.26), rgba(255,255,255,0) 42%)',
           }}
         />
-        <span className="whatsapp-fab-tooltip pointer-events-none absolute right-[68px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold text-black opacity-0 shadow-lg transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-1">
-          WhatsApp
-        </span>
         <span className="relative z-10 flex h-8 w-8 items-center justify-center">
           <WhatsAppIcon />
         </span>
