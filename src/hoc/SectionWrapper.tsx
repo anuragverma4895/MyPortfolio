@@ -12,11 +12,13 @@ const getSectionReveal = (): Variants => {
   return {
     hidden: {
       opacity: 0,
-      y: 24,
+      y: 36,
+      scale: 0.985,
     },
     show: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
         type: "tween",
         duration: 0.5,
@@ -37,7 +39,7 @@ const SectionWrapper = (
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.05 }}
-        className={`${styles.padding} relative z-0 mx-auto max-w-7xl`}
+        className={`${styles.padding} light-section-surface relative z-0 mx-auto max-w-7xl`}
         id={idName}
       >
         <span className="hash-span">&nbsp;</span>
