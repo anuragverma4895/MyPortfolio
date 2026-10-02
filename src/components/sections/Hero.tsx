@@ -323,12 +323,12 @@ const Hero = () => {
                 Download Resume
               </a>
               <a
-                href="https://www.linkedin.com/in/anuragverma4895/"
+                href="https://github.com/anuragverma4895"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-cta-secondary cursor-pointer"
               >
-                Let's Connect
+                View GitHub
               </a>
             </motion.div>
           </div>
