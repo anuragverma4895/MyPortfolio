@@ -25,13 +25,13 @@
   --accent-cyan: #0891b2;
   --accent-magenta: #db2777;
   --accent-purple: #7c3aed;
-  --bg-primary: #e6dfd6;
+  --bg-primary: #ffffff;
   --bg-card: #ffffff;
   --glass-bg: rgba(255, 255, 255, 0.75);
   --glass-border: rgba(0, 0, 0, 0.06);
-  --text-primary: #0f0f1c;
-  --text-secondary: #3b3b55;
-  --nav-bg-scrolled: rgba(230, 223, 214, 0.88);
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.92);
 }
 
 /* Smooth theme transition */
@@ -45,8 +45,9 @@
 
 /* --- Body & Backgrounds --- */
 [data-theme="light"] body {
-  background: linear-gradient(135deg, #d0e7ea 0%, #e3d8ef 50%, #ecd4dc 100%);
+  background: #ffffff;
   background-attachment: fixed;
+  color: #000000;
 }
 
 /* --- Text Colors --- */
@@ -2251,6 +2252,43 @@ img {
 
 .overlay-page-scroll::-webkit-scrollbar {
   display: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   STRICT LIGHT MODE — WHITE BACKGROUND / BLACK TEXT
+   ═══════════════════════════════════════════════════ */
+[data-theme="light"] body,
+[data-theme="light"] #root {
+  background: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] .fixed.inset-0.noise-bg {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .bg-hero-pattern,
+[data-theme="light"] .hero-gradient-overlay {
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .text-white,
+[data-theme="light"] .text-secondary,
+[data-theme="light"] [class*="text-white/"],
+[data-theme="light"] .text-white-100 {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .hero-subtitle,
+[data-theme="light"] .skill-pill,
+[data-theme="light"] footer p,
+[data-theme="light"] footer span,
+[data-theme="light"] footer a {
+  color: #000000 !important;
+}
+
+[data-theme="light"] canvas {
+  display: none !important;
 }
 
 /* ═══════════════════════════════════════════════════
