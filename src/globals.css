@@ -3716,3 +3716,39 @@ img {
     0 12px 24px rgba(0, 0, 0, 0.07) !important;
 }
 
+
+
+/* Floating control tooltips — show only while hovering each control. */
+[data-theme="light"] .ai-assistant-fab .ai-fab-icon,
+[data-theme="light"] .ai-assistant-fab .ai-fab-icon svg {
+  color: #252a31 !important;
+  -webkit-text-fill-color: #252a31 !important;
+  stroke: #252a31 !important;
+}
+
+[data-theme="light"] .ai-fab-tooltip,
+[data-theme="light"] .resume-fab-tooltip,
+[data-theme="light"] .whatsapp-fab-tooltip {
+  background: #ffffff !important;
+  color: #171a1f !important;
+  -webkit-text-fill-color: #171a1f !important;
+  border: 1px solid #c8ced6 !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10) !important;
+  opacity: 0 !important;
+  transform: translateX(-6px) translateY(-50%) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+[data-theme="light"] .ai-fab-group:hover .ai-fab-tooltip,
+[data-theme="light"] .resume-fab-group:hover .resume-fab-tooltip,
+[data-theme="light"] .whatsapp-fab-group:hover .whatsapp-fab-tooltip {
+  opacity: 1 !important;
+  transform: translateX(0) translateY(-50%) !important;
+}
+
+/* Keep the AI sparkle dark and visible on its light glass button. */
+[data-theme="light"] .ai-assistant-fab .ai-fab-icon,
+[data-theme="light"] .ai-assistant-fab .ai-fab-icon svg {
+  color: #252a31 !important;
+  stroke: #252a31 !important;
+}
