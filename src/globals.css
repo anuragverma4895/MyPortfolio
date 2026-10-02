@@ -3133,3 +3133,104 @@ img {
   color: #111111 !important;
   box-shadow: none !important;
 }
+
+
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE — HIGH-CONTRAST TYPOGRAPHY
+   ═══════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  --text-primary: #09090b;
+  --text-secondary: #27272a;
+  --heading-black: #050505;
+  --body-black: #111111;
+  --body-muted: #303030;
+}
+
+/* Main readable content */
+[data-theme="light"] body,
+[data-theme="light"] p,
+[data-theme="light"] li,
+[data-theme="light"] span,
+[data-theme="light"] label {
+  color: #27272a;
+}
+
+/* Headings remain strong and clearly visible */
+[data-theme="light"] h1,
+[data-theme="light"] h2,
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+  color: #050505 !important;
+}
+
+/* Explicit secondary/muted utility text gets a darker neutral tone. */
+[data-theme="light"] .text-secondary,
+[data-theme="light"] .text-white\/60,
+[data-theme="light"] .text-white\/70,
+[data-theme="light"] .text-white\/80,
+[data-theme="light"] [class*="text-white\/"] {
+  color: #303030 !important;
+}
+
+/* Hero typography */
+[data-theme="light"] .hero-headline,
+[data-theme="light"] .hero-headline .text-white {
+  color: #050505 !important;
+}
+
+[data-theme="light"] .hero-role-title {
+  color: #171717 !important;
+  -webkit-text-fill-color: #171717 !important;
+}
+
+[data-theme="light"] .hero-subtitle {
+  color: #292929 !important;
+}
+
+[data-theme="light"] .hero-skill-pill {
+  color: #171717 !important;
+}
+
+[data-theme="light"] .about-intro-text {
+  color: #202020 !important;
+}
+
+/* Navigation and footer text */
+[data-theme="light"] nav a,
+[data-theme="light"] nav p,
+[data-theme="light"] nav li,
+[data-theme="light"] footer,
+[data-theme="light"] footer p,
+[data-theme="light"] footer span,
+[data-theme="light"] footer a {
+  color: #242424 !important;
+}
+
+/* Project, education, achievement and card text */
+[data-theme="light"] .glass-card,
+[data-theme="light"] .aiml-card,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .card-lift,
+[data-theme="light"] .glass-card p,
+[data-theme="light"] .aiml-card p,
+[data-theme="light"] .skill-card p {
+  color: #242424;
+}
+
+[data-theme="light"] .glass-card h3,
+[data-theme="light"] .aiml-card h3,
+[data-theme="light"] .skill-card h3,
+[data-theme="light"] .card-lift h3 {
+  color: #09090b !important;
+}
+
+/* Keep icon/action labels readable without reintroducing accent colors. */
+[data-theme="light"] button,
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+[data-theme="light"] select {
+  color: #171717;
+}
