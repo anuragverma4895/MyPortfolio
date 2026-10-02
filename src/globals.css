@@ -3387,3 +3387,59 @@ img {
     0 9px 20px rgba(0, 0, 0, 0.08) !important;
   transform: translateY(-1px);
 }
+
+
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE — WHITE HEADER/FOOTER + CLEAR OUTLINES
+   ═══════════════════════════════════════════════════ */
+
+/* Header stays solid white instead of transparent/cream. */
+[data-theme="light"] nav,
+[data-theme="light"] nav.nav-scrolled {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #c7cbd1 !important;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Footer uses the same pure-white base as the rest of the page. */
+[data-theme="light"] footer {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-top: 1px solid #c7cbd1 !important;
+}
+
+/* Make every major visible card outline a little darker and easier to see. */
+[data-theme="light"] .light-section-surface,
+[data-theme="light"] .glass-card,
+[data-theme="light"] .aiml-card,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .card-lift,
+[data-theme="light"] .service-card-inner,
+[data-theme="light"] a.flex.min-w-0.flex-col {
+  border-color: #b8bdc4 !important;
+}
+
+/* Nested boxes remain slightly lighter than their parent, preserving depth. */
+[data-theme="light"] .glass-card .rounded-2xl.border,
+[data-theme="light"] .aiml-card .rounded-2xl.border,
+[data-theme="light"] .card-lift .rounded-2xl.border,
+[data-theme="light"] .service-card-inner .rounded-2xl.border,
+[data-theme="light"] .glass-card .rounded-xl.border,
+[data-theme="light"] .aiml-card .rounded-xl.border,
+[data-theme="light"] .card-lift .rounded-xl.border,
+[data-theme="light"] .service-card-inner .rounded-xl.border,
+[data-theme="light"] .skill-card .skill-pill {
+  border-color: #c9cdd2 !important;
+}
+
+/* Small standalone pills/buttons get a crisp neutral outline too. */
+[data-theme="light"] .hero-skill-pill,
+[data-theme="light"] .about-tech-tag,
+[data-theme="light"] .social-sidebar-link,
+[data-theme="light"] [class*="social"] > div,
+[data-theme="light"] .flex.h-10.w-10.cursor-pointer {
+  border-color: #c2c6cc !important;
+}
