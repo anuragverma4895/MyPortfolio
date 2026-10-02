@@ -346,42 +346,6 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      <div className="pointer-events-auto absolute bottom-6 z-[60] hidden w-full items-center justify-center sm:flex">
-        <a
-          href="#about"
-          aria-label="Scroll down to About section"
-          onClick={(e) => {
-            e.preventDefault();
-            document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
-          }}
-          className="cursor-pointer"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.4, duration: 1 }}
-            className="flex h-[58px] w-[32px] items-start justify-center rounded-3xl border-2 p-2 transition-colors hover:border-accent-cyan"
-            style={{
-              borderColor: "rgba(0, 240, 255, 0.3)",
-              boxShadow: "0 0 15px rgba(0, 240, 255, 0.1)",
-            }}
-          >
-            <motion.div
-              animate={{ y: [0, 20, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-              className="mb-1 h-3 w-3 rounded-full"
-              style={{
-                background: "linear-gradient(135deg, #00F0FF, #FF006E)",
-                boxShadow: "0 0 10px rgba(0, 240, 255, 0.5)",
-              }}
-            />
-          </motion.div>
-        </a>
-      </div>
     </section>
   );
 };
