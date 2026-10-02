@@ -123,7 +123,7 @@ const SkillPill: React.FC<{
             style={{ backgroundColor: accentHex }}
           />
         )}
-        <span className="relative z-10 whitespace-nowrap">{name}</span>
+        <span className="relative z-10 whitespace-nowrap text-[14px] font-semibold text-neutral-900">{name}</span>
       </div>
     </motion.div>
   );
