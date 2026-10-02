@@ -26,7 +26,7 @@ const ResumeButton = () => {
         onClick={handleResumeClick}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="group flex items-center gap-3 px-5 py-3 rounded-xl border border-white/[0.08] text-secondary hover:text-white transition-all duration-300 cursor-pointer relative overflow-hidden animate-glow-pulse"
+        className="resume-floating-button group flex items-center gap-3 px-5 py-3 rounded-xl border border-white/[0.08] text-secondary hover:text-white transition-all duration-300 cursor-pointer relative overflow-hidden animate-glow-pulse"
         style={{
           background: 'rgba(12, 10, 30, 0.7)',
           backdropFilter: 'blur(12px)',
