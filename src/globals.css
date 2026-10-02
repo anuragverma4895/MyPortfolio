@@ -3327,3 +3327,63 @@ img {
 [data-theme="light"] .light-section-surface {
   border-color: #e1e4e8 !important;
 }
+
+
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE — STRONGER CARD HIERARCHY
+   Outer cards = anchored surface
+   Inner cards = raised surface
+   ═══════════════════════════════════════════════════ */
+
+/* Stronger outer boundary: make every major card immediately readable. */
+[data-theme="light"] .glass-card,
+[data-theme="light"] .aiml-card,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .card-lift,
+[data-theme="light"] .service-card-inner {
+  border-color: #cbd0d6 !important;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 10px 24px rgba(0, 0, 0, 0.08),
+    0 20px 42px rgba(0, 0, 0, 0.045) !important;
+}
+
+/* Nested information panels rise above their parent card. */
+[data-theme="light"] .glass-card .rounded-2xl.border,
+[data-theme="light"] .aiml-card .rounded-2xl.border,
+[data-theme="light"] .card-lift .rounded-2xl.border,
+[data-theme="light"] .service-card-inner .rounded-2xl.border {
+  background: #ffffff !important;
+  border-color: #d1d5db !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.035),
+    0 7px 16px rgba(0, 0, 0, 0.07) !important;
+}
+
+/* Small chips/pills get a separate, lighter elevation. */
+[data-theme="light"] .glass-card .rounded-xl.border,
+[data-theme="light"] .aiml-card .rounded-xl.border,
+[data-theme="light"] .card-lift .rounded-xl.border,
+[data-theme="light"] .service-card-inner .rounded-xl.border,
+[data-theme="light"] .skill-card .skill-pill {
+  border-color: #d5d9de !important;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.035),
+    0 4px 10px rgba(0, 0, 0, 0.055) !important;
+}
+
+/* Keep the nested surfaces visibly separated from their parent. */
+[data-theme="light"] .glass-card .rounded-2xl.border:hover,
+[data-theme="light"] .aiml-card .rounded-2xl.border:hover,
+[data-theme="light"] .card-lift .rounded-2xl.border:hover,
+[data-theme="light"] .service-card-inner .rounded-2xl.border:hover,
+[data-theme="light"] .glass-card .rounded-xl.border:hover,
+[data-theme="light"] .aiml-card .rounded-xl.border:hover,
+[data-theme="light"] .card-lift .rounded-xl.border:hover,
+[data-theme="light"] .service-card-inner .rounded-xl.border:hover {
+  border-color: #b9bec5 !important;
+  box-shadow:
+    0 3px 6px rgba(0, 0, 0, 0.045),
+    0 9px 20px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-1px);
+}
