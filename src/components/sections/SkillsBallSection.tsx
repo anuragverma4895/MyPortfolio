@@ -320,7 +320,7 @@ function SkillsBallSection({
         <div className="absolute right-1/4 bottom-20 h-60 w-60 rounded-full bg-amber-500/[0.04] blur-[80px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
+      <div className="skill-section-shell relative z-10 mx-auto max-w-7xl px-6 sm:px-10">
         {/* Header */}
         <div className="mb-14 text-center">
           <p className={styles.sectionSubText}>{subtitle}</p>
