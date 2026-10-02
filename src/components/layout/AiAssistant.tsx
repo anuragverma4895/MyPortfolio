@@ -269,7 +269,7 @@ const AiAssistant = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2.0, duration: 0.5, type: 'spring', stiffness: 200 }}
-        className="fixed right-5 bottom-[94px] z-[100] flex items-center justify-center"
+        className="group fixed right-5 bottom-[94px] z-[100] flex items-center justify-center"
         style={{ display: isOpen ? 'none' : undefined }}
       >
         <span className="pointer-events-none absolute right-[68px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold text-black opacity-0 shadow-lg transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100 -translate-x-1">
