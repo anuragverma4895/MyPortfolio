@@ -3443,3 +3443,61 @@ img {
 [data-theme="light"] .flex.h-10.w-10.cursor-pointer {
   border-color: #c2c6cc !important;
 }
+
+
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE — FINAL HERO ACTION CONTRAST
+   ═══════════════════════════════════════════════════ */
+
+/* The global span text rule must not darken the black primary CTA. */
+[data-theme="light"] .hero-cta-primary,
+[data-theme="light"] .hero-cta-primary span {
+  background: #111111 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+[data-theme="light"] .hero-cta-primary:hover,
+[data-theme="light"] .hero-cta-primary:hover span {
+  background: #000000 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Keep the secondary CTA neutral and readable. */
+[data-theme="light"] .hero-cta-secondary,
+[data-theme="light"] .hero-cta-secondary span {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background: #ffffff !important;
+  border-color: #b8bdc4 !important;
+}
+
+/* AI Assistant FAB: monochrome in light mode; no legacy rainbow ring. */
+[data-theme="light"] .ai-assistant-fab {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 1px solid #b8bdc4 !important;
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.08),
+    0 14px 30px rgba(0, 0, 0, 0.10) !important;
+}
+
+[data-theme="light"] .ai-assistant-fab:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-color: #8f959d !important;
+  box-shadow:
+    0 7px 14px rgba(0, 0, 0, 0.10),
+    0 18px 36px rgba(0, 0, 0, 0.13) !important;
+}
+
+[data-theme="light"] .ai-assistant-fab-ring {
+  display: none !important;
+}
+
+[data-theme="light"] .ai-assistant-fab svg,
+[data-theme="light"] .ai-assistant-fab span {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
