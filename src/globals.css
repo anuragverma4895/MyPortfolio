@@ -3532,3 +3532,45 @@ img {
     white-space: nowrap;
   }
 }
+
+
+/* Final hero CTA treatment: clean white surfaces with clear neutral emphasis. */
+[data-theme="light"] .hero-cta-primary,
+[data-theme="light"] .hero-cta-secondary {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background: #ffffff !important;
+  border: 1px solid #aeb4bc !important;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.06),
+    0 8px 18px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .hero-cta-primary {
+  border-color: #737981 !important;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.08),
+    0 10px 22px rgba(0, 0, 0, 0.07) !important;
+}
+
+[data-theme="light"] .hero-cta-primary span {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+}
+
+[data-theme="light"] .hero-cta-primary:hover,
+[data-theme="light"] .hero-cta-secondary:hover {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: #f7f7f7 !important;
+  border-color: #555b63 !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.08),
+    0 14px 26px rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="light"] .hero-cta-primary:hover span {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+}
