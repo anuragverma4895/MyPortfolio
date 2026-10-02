@@ -20,8 +20,11 @@ const ResumeButton = () => {
       initial={{ x: 100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.8, ease: 'easeOut' }}
-      className="fixed right-5 bottom-6 z-30 hidden md:flex"
+      className="resume-fab-group fixed right-5 bottom-6 z-30 hidden md:flex"
     >
+        <span className="resume-fab-tooltip pointer-events-none absolute right-[68px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold tracking-wide text-black opacity-0 shadow-lg transition-all duration-200 -translate-x-1">
+          Download Resume
+        </span>
       <motion.button
         onClick={handleResumeClick}
         whileHover={{ scale: 1.05 }}
@@ -40,9 +43,6 @@ const ResumeButton = () => {
           e.currentTarget.style.boxShadow = '';
         }}
       >
-        <span className="resume-fab-tooltip pointer-events-none absolute right-[68px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold tracking-wide text-black opacity-0 shadow-lg transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-1">
-          Resume
-        </span>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="14"
