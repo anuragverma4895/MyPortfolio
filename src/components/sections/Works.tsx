@@ -117,14 +117,6 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
           className="aiml-card card-lift group w-full aspect-square rounded-2xl p-4 relative overflow-hidden flex flex-col cursor-pointer"
           onClick={() => window.open(deployLink || sourceCodeLink, '_blank')}
         >
-          {/* Animated background glow */}
-          <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
-            style={{
-              background: 'radial-gradient(circle at 50% 50%, rgba(255, 0, 110, 0.06) 0%, transparent 70%)',
-            }}
-          />
-
           <div>
             <div className="relative aspect-video w-full overflow-hidden rounded-xl shrink-0">
               <img
