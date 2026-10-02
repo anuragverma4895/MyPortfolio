@@ -2891,11 +2891,14 @@ img {
 }
 
 [data-theme="light"] .hero-name-gradient {
-  background: linear-gradient(90deg, #09090b 0%, #18181b 45%, #27272a 100%) !important;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: transparent !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #09090b !important;
+  color: #09090b !important;
   filter: none !important;
+  text-shadow: none !important;
 }
 
 [data-theme="light"] .hero-role-title {
