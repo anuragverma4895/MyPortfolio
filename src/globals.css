@@ -3654,3 +3654,65 @@ img {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
 }
+
+
+/* Final floating controls — soft glass treatment for light mode. */
+[data-theme="light"] .ai-assistant-fab,
+[data-theme="light"] .resume-floating-button {
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: #20242a !important;
+  border: 1px solid #c8ced6 !important;
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.06),
+    0 12px 24px rgba(0, 0, 0, 0.07) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .ai-assistant-fab:hover,
+[data-theme="light"] .resume-floating-button:hover {
+  background: #ffffff !important;
+  color: #11151a !important;
+  border-color: #aeb5be !important;
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.08),
+    0 16px 30px rgba(0, 0, 0, 0.09) !important;
+}
+
+[data-theme="light"] .ai-assistant-fab .ai-fab-icon,
+[data-theme="light"] .resume-floating-button svg {
+  color: #252a31 !important;
+  -webkit-text-fill-color: #252a31 !important;
+}
+
+[data-theme="light"] .ai-assistant-fab .ai-fab-tooltip,
+[data-theme="light"] .resume-floating-button .resume-fab-tooltip,
+[data-theme="light"] .whatsapp-fab-tooltip {
+  background: #ffffff !important;
+  color: #171a1f !important;
+  -webkit-text-fill-color: #171a1f !important;
+  border: 1px solid #c8ced6 !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.10) !important;
+}
+
+[data-theme="light"] .ai-assistant-fab .ai-fab-tooltip,
+[data-theme="light"] .resume-floating-button .resume-fab-tooltip,
+[data-theme="light"] .whatsapp-fab-tooltip {
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+[data-theme="light"] .ai-assistant-fab:hover .ai-fab-tooltip,
+[data-theme="light"] .resume-floating-button:hover .resume-fab-tooltip,
+[data-theme="light"] .whatsapp-fab:hover .whatsapp-fab-tooltip {
+  opacity: 1;
+  transform: translateX(0) translateY(-50%);
+}
+
+[data-theme="light"] .whatsapp-fab {
+  border: 1px solid rgba(0, 200, 83, 0.35) !important;
+  box-shadow:
+    0 4px 10px rgba(0, 200, 83, 0.12),
+    0 12px 24px rgba(0, 0, 0, 0.07) !important;
+}
+
