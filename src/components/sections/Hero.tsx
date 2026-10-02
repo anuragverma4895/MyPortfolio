@@ -317,7 +317,6 @@ const Hero = () => {
               </a>
               <a
                 href="/resume.pdf"
-                download="Anurag-Verma-Resume.pdf"
                 className="hero-cta-secondary cursor-pointer"
               >
                 Resume
