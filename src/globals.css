@@ -2998,3 +2998,138 @@ img {
 [data-theme="light"] .light-section-surface {
   will-change: transform, opacity;
 }
+
+
+/* ═══════════════════════════════════════════════════
+   PROFESSIONAL MONOCHROME LIGHT MODE
+   No multi-color hover/glow effects.
+   ═══════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  --accent-cyan: #111111;
+  --accent-magenta: #333333;
+  --accent-purple: #222222;
+  --accent-blue: #111111;
+  --heading-black: #09090b;
+  --body-black: #171717;
+  --body-muted: #52525b;
+}
+
+/* Keep the entire light-mode interface visually neutral. */
+[data-theme="light"] nav li:hover,
+[data-theme="light"] nav .nav-link-active,
+[data-theme="light"] .social-sidebar-link:hover svg,
+[data-theme="light"] a.text-accent-cyan\/80:hover,
+[data-theme="light"] .skill-pill:hover,
+[data-theme="light"] .about-tech-tag:hover,
+[data-theme="light"] .hero-skill-pill:hover,
+[data-theme="light"] .hero-cta-secondary:hover {
+  color: #111111 !important;
+}
+
+/* Neutral hover treatment: movement/shadow only, never colored glow. */
+[data-theme="light"] .glass-card:hover,
+[data-theme="light"] .aiml-card:hover,
+[data-theme="light"] .skill-card:hover,
+[data-theme="light"] .card-lift:hover,
+[data-theme="light"] .social-sidebar-link:hover,
+[data-theme="light"] [class*="social"] > div:hover,
+[data-theme="light"] .card-img_hover div:hover,
+[data-theme="light"] .flex.h-10.w-10.cursor-pointer:hover,
+[data-theme="light"] a.flex.min-w-0.flex-col:hover,
+[data-theme="light"] .skill-pill:hover,
+[data-theme="light"] .about-tech-tag:hover,
+[data-theme="light"] .rounded-full.border.border-white\/10:hover {
+  border-color: rgba(0, 0, 0, 0.14) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* No colored backgrounds/gradients on hover. */
+[data-theme="light"] .skill-pill:hover,
+[data-theme="light"] .glass-card .rounded-xl.border:hover,
+[data-theme="light"] .rounded-full.border.border-white\/10:hover,
+[data-theme="light"] a.flex.min-w-0.flex-col:hover,
+[data-theme="light"] .about-tech-tag:hover,
+[data-theme="light"] .hero-cta-secondary:hover {
+  background: #ffffff !important;
+}
+
+/* Neutral hero title and role — no cyan/purple/pink typography. */
+[data-theme="light"] .hero-role-title,
+[data-theme="light"] .gradient-text-cyan,
+[data-theme="light"] .gradient-text-magenta,
+[data-theme="light"] .gradient-text-hero {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #111111 !important;
+  color: #111111 !important;
+  filter: none !important;
+}
+
+/* Remove ambient color glows from the hero. */
+[data-theme="light"] .hero-gradient-overlay,
+[data-theme="light"] .hero-avatar-glow {
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+[data-theme="light"] .hero-avatar-img,
+[data-theme="light"] .hero-avatar-container:hover .hero-avatar-img {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.12)) !important;
+}
+
+/* Primary actions: black/white instead of gradient accents. */
+[data-theme="light"] .hero-cta-primary,
+[data-theme="light"] .btn-solid {
+  background: #111111 !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme="light"] .hero-cta-primary:hover,
+[data-theme="light"] .btn-solid:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.16) !important;
+}
+
+/* Remove gradient border/hover animation from light-mode cards. */
+[data-theme="light"] .gradient-border::before,
+[data-theme="light"] .gradient-border:hover::before {
+  background: #111111 !important;
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+/* Neutral section divider and scrollbar. */
+[data-theme="light"] .section-divider::after {
+  background: #d4d4d4 !important;
+  opacity: 1 !important;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb,
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3 !important;
+}
+
+/* AI assistant keeps its function, but removes rainbow hover/glow styling. */
+[data-theme="light"] .ai-assistant-fab {
+  background: #111111 !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14) !important;
+}
+
+[data-theme="light"] .ai-assistant-fab:hover {
+  background: #000000 !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18) !important;
+}
+
+[data-theme="light"] .ai-chat-suggestion-chip:hover,
+[data-theme="light"] .ai-chat-close-btn:hover {
+  background: #f5f5f5 !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #111111 !important;
+  box-shadow: none !important;
+}
