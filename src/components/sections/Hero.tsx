@@ -307,7 +307,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.8, duration: 0.8 }}
-              className="relative z-[60] mt-10 flex flex-wrap items-center gap-4"
+              className="hero-cta-group relative z-[60] mt-10 flex flex-wrap items-center gap-2"
             >
               <a href="#work" className="hero-cta-primary cursor-pointer">
                 <span className="relative z-10">View My Work</span>
