@@ -3574,3 +3574,26 @@ img {
   color: #000000 !important;
   -webkit-text-fill-color: #000000 !important;
 }
+
+
+/* Final hero CTA contrast correction — all four labels must remain visible. */
+[data-theme="light"] .hero-cta-group .hero-cta-primary,
+[data-theme="light"] .hero-cta-group .hero-cta-secondary {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .hero-cta-group .hero-cta-primary span,
+[data-theme="light"] .hero-cta-group .hero-cta-secondary span {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  background: transparent !important;
+}
+
+[data-theme="light"] .hero-cta-group .hero-cta-primary:hover,
+[data-theme="light"] .hero-cta-group .hero-cta-secondary:hover {
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  background: #f5f5f5 !important;
+}
