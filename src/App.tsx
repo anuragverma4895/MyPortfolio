@@ -9,7 +9,6 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import { config } from './constants/config';
 import { technologies } from './constants';
-import SectionDivider from './components/atoms/SectionDivider';
 
 // Lazy load heavy components
 const SkillsBallSection = lazy(() => import('./components/sections/SkillsBallSection'));
@@ -197,25 +196,15 @@ const App = () => {
       <div className="relative z-10">
         <About />
 
-        <SectionDivider />
-
         <Suspense fallback={<SectionFallback height="32rem" />}>
           <SkillsBallSection skills={technologies} />
         </Suspense>
 
-        <SectionDivider />
-
         <Education />
-
-        <SectionDivider />
 
         <Achievements />
 
-        <SectionDivider />
-
         <Works />
-
-        <SectionDivider />
 
         <Suspense fallback={<SectionFallback height="28rem" />}>
           <ProfileSection />
