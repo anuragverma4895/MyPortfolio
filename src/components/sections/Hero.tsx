@@ -268,11 +268,6 @@ const Hero = () => {
                 transition={{ delay: 0.55, duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] }}
                 className="relative mt-2 block w-fit"
               >
-                <span
-                  className="absolute -inset-1 blur-xl opacity-30"
-                  style={{ background: "linear-gradient(90deg, #00F0FF, #FF006E)" }}
-                  aria-hidden="true"
-                />
                 <span className="hero-name-gradient relative block">{config.hero.name}</span>
               </motion.span>
             </h1>
