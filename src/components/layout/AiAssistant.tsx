@@ -269,25 +269,19 @@ const AiAssistant = () => {
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 2.0, duration: 0.5, type: 'spring', stiffness: 200 }}
-        className="fixed right-5 bottom-24 z-[100] flex flex-row items-center gap-3"
+        className="fixed right-5 bottom-[94px] z-[100] flex items-center justify-center"
         style={{ display: isOpen ? 'none' : undefined }}
       >
-        <motion.div
-          initial={{ opacity: 0, x: 10, scale: 0.9 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ delay: 3.5, duration: 0.4, type: 'spring' }}
-          className="bg-black/80 backdrop-blur-md text-white text-sm px-4 py-2 rounded-2xl shadow-xl border border-white/10 relative pointer-events-none whitespace-nowrap"
-        >
-          AI Assistant✨
-          <div className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3 h-3 bg-black/80 border-t border-r border-white/10 rotate-45"></div>
-        </motion.div>
+        <span className="pointer-events-none absolute right-[68px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold text-black opacity-0 shadow-lg transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100 -translate-x-1">
+          AI Assistant
+        </span>
         <motion.button
           type="button"
           onClick={toggleChat}
           aria-label="Open AI Assistant"
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
-          className="ai-assistant-fab group relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full text-white"
+          className="ai-assistant-fab group relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full text-white shadow-lg"
         >
           {/* Animated glow ring */}
           <span className="ai-assistant-fab-ring" />
