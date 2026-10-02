@@ -3234,3 +3234,96 @@ img {
 [data-theme="light"] select {
   color: #171717;
 }
+
+
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE — ELEVATED 3D CARD SYSTEM
+   Consistent depth + visible neutral borders.
+   ═══════════════════════════════════════════════════ */
+
+[data-theme="light"] .service-card-inner,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .glass-card,
+[data-theme="light"] .aiml-card,
+[data-theme="light"] .skill-pill,
+[data-theme="light"] .hero-skill-pill,
+[data-theme="light"] .card-lift,
+[data-theme="light"] .social-sidebar-link,
+[data-theme="light"] [class*="social"] > div,
+[data-theme="light"] .card-img_hover div,
+[data-theme="light"] .flex.h-10.w-10.cursor-pointer,
+[data-theme="light"] a.flex.min-w-0.flex-col {
+  background: #ffffff !important;
+  border: 1px solid #d9dde3 !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 8px 22px rgba(0, 0, 0, 0.07) !important;
+}
+
+/* Skills category cards: a clearly separated elevated surface. */
+[data-theme="light"] .skill-card {
+  background: #dfe3e8 !important;
+  border: 0 !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 12px 30px rgba(0, 0, 0, 0.09) !important;
+}
+
+[data-theme="light"] .skill-card > div {
+  background: #ffffff !important;
+  border: 1px solid #d9dde3 !important;
+}
+
+/* Project/education-style linked cards get the same depth treatment. */
+[data-theme="light"] a.flex.min-w-0.flex-col {
+  border-color: #d6dae0 !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 10px 26px rgba(0, 0, 0, 0.07) !important;
+}
+
+/* Neutral hover: lift the surface, never add color. */
+[data-theme="light"] .service-card-inner:hover,
+[data-theme="light"] .skill-card:hover,
+[data-theme="light"] .glass-card:hover,
+[data-theme="light"] .aiml-card:hover,
+[data-theme="light"] .skill-pill:hover,
+[data-theme="light"] .hero-skill-pill:hover,
+[data-theme="light"] .card-lift:hover,
+[data-theme="light"] .social-sidebar-link:hover,
+[data-theme="light"] [class*="social"] > div:hover,
+[data-theme="light"] .card-img_hover div:hover,
+[data-theme="light"] .flex.h-10.w-10.cursor-pointer:hover,
+[data-theme="light"] a.flex.min-w-0.flex-col:hover {
+  border-color: #bfc4cb !important;
+  box-shadow:
+    0 5px 8px rgba(0, 0, 0, 0.05),
+    0 16px 34px rgba(0, 0, 0, 0.10) !important;
+}
+
+/* Slight physical lift for cards that already support hover motion. */
+[data-theme="light"] .service-card-inner:hover,
+[data-theme="light"] .glass-card:hover,
+[data-theme="light"] .aiml-card:hover,
+[data-theme="light"] .card-lift:hover,
+[data-theme="light"] a.flex.min-w-0.flex-col:hover {
+  transform: translateY(-3px);
+}
+
+/* Skill pills remain compact, but visibly sit above the card. */
+[data-theme="light"] .skill-pill {
+  box-shadow:
+    0 2px 3px rgba(0, 0, 0, 0.04),
+    0 5px 12px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Remove any remaining category/card color wash behind the neutral surfaces. */
+[data-theme="light"] .skill-card > div > .absolute,
+[data-theme="light"] .skill-card > div > div.absolute {
+  opacity: 0 !important;
+}
+
+/* Keep borders crisp and visible even when a card has no hover state. */
+[data-theme="light"] .light-section-surface {
+  border-color: #e1e4e8 !important;
+}
