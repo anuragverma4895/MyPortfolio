@@ -3597,3 +3597,34 @@ img {
   -webkit-text-fill-color: #000000 !important;
   background: #f5f5f5 !important;
 }
+
+
+/* All four hero CTAs share the same visual emphasis. */
+[data-theme="light"] .hero-cta-group .hero-cta-primary,
+[data-theme="light"] .hero-cta-group .hero-cta-secondary {
+  background: #ffffff !important;
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+  border: 1px solid #8f969e !important;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.07),
+    0 9px 20px rgba(0, 0, 0, 0.055) !important;
+}
+
+[data-theme="light"] .hero-cta-group .hero-cta-primary span,
+[data-theme="light"] .hero-cta-group .hero-cta-secondary span {
+  color: #111111 !important;
+  -webkit-text-fill-color: #111111 !important;
+}
+
+[data-theme="light"] .hero-cta-group .hero-cta-primary:hover,
+[data-theme="light"] .hero-cta-group .hero-cta-secondary:hover {
+  background: #f5f5f5 !important;
+  border-color: #555b63 !important;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.09),
+    0 14px 28px rgba(0, 0, 0, 0.08) !important;
+}
