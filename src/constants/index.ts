@@ -173,7 +173,7 @@ const projects: TProject[] = [
   {
     name: 'Payment Processing System',
     description:
-      'Production-ready payment gateway architecture inspired by Razorpay, featuring idempotent transaction pipelines, automated retry protocols, and cryptographic webhook simulations.',
+      'Full-stack payment processing system inspired by Razorpay, supporting UPI, cards, net banking, wallets, order management, transaction tracking, webhook handling, idempotency, failure recovery, and an admin dashboard.',
     tags: [
       { name: 'react', color: 'blue-text-gradient' },
       { name: 'nodejs', color: 'green-text-gradient' },
