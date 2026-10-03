@@ -3752,3 +3752,59 @@ img {
   color: #252a31 !important;
   stroke: #252a31 !important;
 }
+
+
+/* ─── PROJECT CARDS — clean raised 3D treatment in light mode ─── */
+[data-theme="light"] .project-card {
+  background: #ffffff !important;
+  border: 1px solid #aeb4bc !important;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.04),
+    0 10px 24px rgba(0, 0, 0, 0.07),
+    0 18px 36px rgba(0, 0, 0, 0.035) !important;
+  transform: translateZ(0);
+}
+
+[data-theme="light"] .project-card:hover {
+  background: #ffffff !important;
+  border-color: #858c95 !important;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.05),
+    0 14px 30px rgba(0, 0, 0, 0.10),
+    0 22px 44px rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-3px);
+}
+
+[data-theme="light"] .project-card-title {
+  color: #111318 !important;
+  -webkit-text-fill-color: #111318 !important;
+}
+
+[data-theme="light"] .project-card-description {
+  color: #3b4047 !important;
+  -webkit-text-fill-color: #3b4047 !important;
+}
+
+[data-theme="light"] .project-card .card-img_hover > button {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border-color: #aeb4bc !important;
+  box-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme="light"] .project-card .card-img_hover > button svg {
+  color: #16191d !important;
+  stroke: #16191d !important;
+}
+
+[data-theme="light"] .project-card .project-github-icon {
+  filter: brightness(0.18) !important;
+}
+
+[data-theme="light"] .project-card .relative.aspect-video {
+  border: 1px solid #c6cbd1;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
