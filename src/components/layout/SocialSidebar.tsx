@@ -79,7 +79,7 @@ const SocialSidebar = () => {
             e.currentTarget.style.color = social.hoverColor;
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+            e.currentTarget.style.borderColor = document.documentElement.getAttribute('data-theme') === 'light' ? 'rgba(0,0,0,0.28)' : 'rgba(255,255,255,0.08)';
             e.currentTarget.style.boxShadow = 'none';
             e.currentTarget.style.color = '';
           }}
