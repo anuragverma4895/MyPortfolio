@@ -46,10 +46,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col-reverse items-center gap-8 overflow-hidden xl:flex-row xl:items-center xl:justify-between">
+    <div className="mx-auto flex w-full max-w-7xl flex-col-reverse items-center gap-8 overflow-hidden xl:grid xl:grid-cols-[0.92fr_1fr] xl:items-center xl:gap-10">
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className="glass-card w-full rounded-2xl p-6 sm:p-8 xl:w-[48%] xl:flex-none"
+        className="glass-card w-full rounded-2xl p-6 sm:p-8"
       >
         <Header useMotion={false} {...config.contact} />
 
@@ -103,7 +103,7 @@ const Contact = () => {
 
       <motion.div
         variants={slideIn("right", "tween", 0.2, 1)}
-        className="h-[330px] w-full md:h-[480px] xl:h-[560px] xl:w-[48%] xl:flex-none"
+        className="contact-earth w-full h-[330px] md:h-[480px] xl:h-[560px]"
       >
         <EarthCanvas />
       </motion.div>
