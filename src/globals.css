@@ -3833,3 +3833,10 @@ img {
   opacity: 1 !important;
   visibility: visible !important;
 }
+
+
+/* Light mode: make the fixed social sidebar borders clearly visible. */
+[data-theme="light"] .social-sidebar-link,
+[data-theme="light"] .fixed.left-5.bottom-6 a {
+  border-color: rgba(0, 0, 0, 0.28) !important;
+}
