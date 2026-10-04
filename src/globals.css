@@ -3808,3 +3808,28 @@ img {
     0 2px 5px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
+
+
+/* Contact page: keep the 3D Earth identical in both themes. */
+.contact-earth {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.contact-earth canvas {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+[data-theme="light"] .contact-earth,
+[data-theme="dark"] .contact-earth {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
