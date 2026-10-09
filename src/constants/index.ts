@@ -300,7 +300,7 @@ const aimlProjects: TAimlProject[] = [
     sourceCodeLink: 'https://github.com/anuragverma4895/AI-Coding-Agent',
   },
   {
-    name: 'RAG Pipeline with Answer Evaluation',
+    name: 'RAG Answer Eval',
     description:
       'Built a RAG pipeline with vector search, LLM answers, and automated relevance and accuracy evaluation.',
     tags: [
@@ -310,12 +310,12 @@ const aimlProjects: TAimlProject[] = [
     ],
     image: aimlRagPipeline,
     sourceCodeLink:
-      'https://github.com/anuragverma4895/RAG-Pipeline-with-Automated-Answer-Evaluation',
+      'https://github.com/anuragverma4895/RAG-Answer-Eval',
   },
   {
     name: 'AI-Generated Text Detection Platform',
     description:
-      'An advanced AI-powered text authenticity analysis platform. Detects machine-generated content with detailed confidence scoring, sentence-level highlighting, and enterprise-grade reporting.',
+      'Detects AI-generated text with confidence scores and sentence-level highlighting.',
     tags: [
       { name: 'typescript', color: 'blue-text-gradient' },
       { name: 'transformers', color: 'green-text-gradient' },
