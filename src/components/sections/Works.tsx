@@ -114,7 +114,7 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
         className="w-full"
       >
         <div 
-          className="project-card aiml-card card-lift group w-full aspect-square rounded-2xl p-4 relative overflow-hidden flex flex-col cursor-pointer"
+          className="project-card aiml-card card-lift group w-full min-h-[480px] rounded-2xl p-4 relative overflow-hidden flex flex-col cursor-pointer"
           onClick={() => window.open(deployLink || sourceCodeLink, '_blank')}
         >
           <div>
@@ -167,7 +167,7 @@ const AimlProjectCard: React.FC<{ index: number } & TAimlProject> = ({
 
             <div className="mt-4 relative z-10 flex flex-col flex-1">
               <h3 className="project-card-title text-[18px] sm:text-[20px] font-bold text-white transition-colors duration-300 line-clamp-2">{name}</h3>
-              <p className="project-card-description text-secondary mt-2 text-[14px] leading-[21px] line-clamp-5">{description}</p>
+              <p className="project-card-description text-secondary mt-2 text-[14px] leading-[21px]">{description}</p>
             </div>
           </div>
         </div>
