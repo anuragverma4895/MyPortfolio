@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./logo.svg" />
@@ -7,7 +7,27 @@
     <meta name="description" content="Anurag Verma — Full Stack Developer, MERN Stack Engineer & AI/ML specialist. Building production-grade web applications and intelligent systems." />
     <meta name="keywords" content="Anurag Verma, Full Stack Developer, MERN Stack, React, Node.js, AI, ML, Portfolio" />
     <meta name="author" content="Anurag Verma" />
-    <meta name="theme-color" content="#030014" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Apply the saved theme before the page paints to prevent a dark-mode flash. -->
+    <script>
+      (function () {
+        var theme = "light";
+        try {
+          var savedTheme = localStorage.getItem("portfolio-theme");
+          if (savedTheme === "light" || savedTheme === "dark") {
+            theme = savedTheme;
+          }
+        } catch (_) {
+          // Keep light mode when browser storage is unavailable.
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+        var themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) {
+          themeColor.setAttribute("content", theme === "light" ? "#ffffff" : "#030014");
+        }
+      })();
+    </script>
 
     <!-- Preconnect to fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,8 +36,19 @@
     <title>Anurag Verma — Full Stack Developer & AI Engineer</title>
 
     <style>
-      /* Inline preloader to avoid flash */
-      body { background: #030014; margin: 0; }
+      /* Match the initial page background to the default light theme. */
+      html,
+      body {
+        background: #ffffff;
+        color: #111111;
+        margin: 0;
+      }
+
+      html[data-theme="dark"],
+      html[data-theme="dark"] body {
+        background: #030014;
+        color: #ffffff;
+      }
     </style>
   </head>
   <body>
