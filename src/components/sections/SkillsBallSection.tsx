@@ -82,7 +82,8 @@ const SkillPill: React.FC<{
   icon?: string;
   index: number;
   accentHex: string;
-}> = ({ name, icon, index, accentHex }) => {
+  isLight: boolean;
+}> = ({ name, icon, index, accentHex, isLight }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -97,9 +98,11 @@ const SkillPill: React.FC<{
       className="group/pill relative cursor-default"
     >
       <div
-        className="skill-pill relative flex items-center gap-2.5 rounded-xl border border-white/[0.08] px-4 py-3 text-[13px] font-semibold text-white/75 backdrop-blur-sm transition-all duration-300 group-hover/pill:border-white/25 group-hover/pill:text-white group-hover/pill:shadow-xl overflow-hidden"
+        className={`skill-pill relative flex items-center gap-2.5 rounded-xl border px-4 py-3 text-[13px] font-semibold backdrop-blur-sm transition-all duration-300 group-hover/pill:shadow-xl overflow-hidden ${isLight ? "border-slate-200 bg-white/90 text-slate-800 group-hover/pill:border-slate-300 group-hover/pill:text-slate-950" : "border-white/10 bg-white/[0.04] text-slate-100 group-hover/pill:border-white/25 group-hover/pill:text-white"}`}
         style={{
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+          background: isLight
+            ? 'linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.96) 100%)'
+            : 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)',
         }}
       >
         {/* Hover glow background */}
@@ -123,7 +126,7 @@ const SkillPill: React.FC<{
             style={{ backgroundColor: accentHex }}
           />
         )}
-        <span className="relative z-10 whitespace-nowrap text-[14px] font-semibold text-neutral-900">{name}</span>
+        <span className={`relative z-10 whitespace-nowrap text-[14px] font-semibold ${isLight ? "text-slate-800" : "text-slate-100"}`}>{name}</span>
       </div>
     </motion.div>
   );
@@ -228,14 +231,14 @@ const CategoryCard: React.FC<{
                 >
                   {category.title}
                 </h3>
-                <p className="text-[12px] text-white/40 font-medium tracking-wide">
+                <p className={`text-[12px] font-medium tracking-wide ${isLight ? "text-slate-500" : "text-slate-400"}`}>
                   {category.skills.length} technologies
                 </p>
               </div>
 
               {/* Skill count badge */}
               <div
-                className="ml-auto flex h-8 w-8 items-center justify-center rounded-lg text-[12px] font-bold text-white/60 transition-all duration-300 group-hover:text-white group-hover:scale-110"
+                className={`ml-auto flex h-8 w-8 items-center justify-center rounded-lg text-[12px] font-bold transition-all duration-300 group-hover:scale-110 ${isLight ? "text-slate-700 group-hover:text-slate-950" : "text-slate-300 group-hover:text-white"}`}
                 style={{
                   background: `${category.accentHex}12`,
                   border: `1px solid ${category.accentHex}20`,
@@ -259,6 +262,7 @@ const CategoryCard: React.FC<{
                   icon={getIconForSkill(skill)}
                   index={i}
                   accentHex={category.accentHex}
+                  isLight={isLight}
                 />
               ))}
             </div>
