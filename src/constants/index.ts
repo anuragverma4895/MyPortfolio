@@ -302,7 +302,7 @@ const aimlProjects: TAimlProject[] = [
   {
     name: 'RAG Pipeline with Answer Evaluation',
     description:
-      'Enterprise-grade Retrieval-Augmented Generation pipeline combining vector search with LLM synthesis, featuring automated benchmark metrics for contextual relevance and factual accuracy.',
+      'Built a RAG pipeline with vector search, LLM answers, and automated relevance and accuracy evaluation.',
     tags: [
       { name: 'LLM', color: 'blue-text-gradient' },
       { name: 'RAG', color: 'green-text-gradient' },
@@ -363,7 +363,7 @@ const aimlProjects: TAimlProject[] = [
   {
     name: 'Sales Data Analysis & Business Insights',
     description:
-      'Comprehensive data analytics workflow extracting actionable strategic insights from large-scale sales telemetry, including trend identification, revenue forecasting, and cohort segmentation.',
+      'Analyzed sales data to identify trends, forecast revenue, and uncover customer cohort insights.',
     tags: [
       { name: 'data-analysis', color: 'blue-text-gradient' },
       { name: 'visualization', color: 'green-text-gradient' },
