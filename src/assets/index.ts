@@ -7,7 +7,7 @@ import github from './github.png';
 import menu from './menu.svg';
 import close from './close.svg';
 import aiml from './aiml.svg';
-import anuragHero from './anurag-hero.png';
+import anuragHero from './mahadev.jpg';
 
 import css from './tech/css.png';
 import docker from './tech/docker.png';
