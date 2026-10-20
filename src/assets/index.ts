@@ -40,6 +40,7 @@ import aiMockInterview from './prepverse-mock-interview.png';
 import aiRevenueRecovery from './revenue-recovery-agent.png';
 import researchGrantSystem from './rgms-grant-management.png';
 import aimlTextDetectionPlatform from './aiml-text-detection-platform.jpg';
+import aimlWooCommerceAgent from './WooCommerce Agent Connector.png';
 
 export {
   logo,
@@ -81,4 +82,5 @@ export {
   aiRevenueRecovery,
   researchGrantSystem,
   aimlTextDetectionPlatform,
+  aimlWooCommerceAgent,
 };
