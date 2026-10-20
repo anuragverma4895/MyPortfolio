@@ -35,6 +35,7 @@ import {
   aiRevenueRecovery,
   researchGrantSystem,
   aimlTextDetectionPlatform,
+  aimlWooCommerceAgent,
 } from '../assets';
 
 export const navLinks: TNavLink[] = [
