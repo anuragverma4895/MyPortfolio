@@ -288,6 +288,19 @@ export type TAimlProject = {
 /* ─── AI/ML & Data Science Projects (best first) ─── */
 const aimlProjects: TAimlProject[] = [
   {
+    name: 'WooCommerce Agent Connector',
+    description:
+      'MCP-compatible connector that lets AI agents securely access WooCommerce orders with listing, order details, search, pagination, input validation, retries, and rate-limit handling.',
+    tags: [
+      { name: 'MCP', color: 'blue-text-gradient' },
+      { name: 'Node.js', color: 'green-text-gradient' },
+      { name: 'WooCommerce REST API', color: 'pink-text-gradient' },
+    ],
+    image: aimlWooCommerceAgent,
+    sourceCodeLink: 'https://github.com/anuragverma4895/woocommerce-agent-connector',
+    deployLink: 'https://woocommerce-agent-connector.onrender.com/',
+  },
+  {
     name: 'AI Coding Agent',
     description:
       'Autonomous agent engineered in Python that explores repositories, parses architecture, and implements user specifications via Gemini LLM with a 6-stage ReAct loop and safe tool execution.',
