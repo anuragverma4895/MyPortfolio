@@ -3854,41 +3854,41 @@ body * {
 
 /* ═══════════════════════════════════════════════════
    LIGHT MODE TYPOGRAPHY — HIGH CONTRAST BLACK TEXT
-   Keep light-mode text crisp; make existing bold text
-   visibly stronger without changing layout or sizing.
+   High-specificity selectors ensure existing theme utility
+   classes do not make the text appear grey or washed out.
    ═══════════════════════════════════════════════════ */
-[data-theme="light"] body,
-[data-theme="light"] body :is(
-  p, span, a, li, label, button, input, textarea, select,
-  small, blockquote, figcaption, dt, dd, th, td, h1, h2, h3, h4, h5, h6
+html[data-theme="light"] #root :is(
+  h1, h2, h3, h4, h5, h6, p, span, a, li, label, button,
+  input, textarea, select, small, blockquote, figcaption,
+  dt, dd, th, td, strong, b
 ) {
   color: #000000 !important;
 }
 
-/* Improve readability for regular text while retaining
-   each element's existing size and spacing. */
-[data-theme="light"] body :is(
+/* Slightly strengthen regular text for improved readability. */
+html[data-theme="light"] #root :is(
   p, li, label, small, blockquote, figcaption, dt, dd, th, td,
   input, textarea, select, button
 ) {
-  font-weight: 500;
+  font-weight: 500 !important;
 }
 
-/* Push already-bold copy to a noticeably heavier weight. */
-[data-theme="light"] body :is(
-  strong, b, .font-semibold, .font-bold, .font-extrabold, .font-black
+/* Existing bold/semibold text becomes distinctly heavier. */
+html[data-theme="light"] #root :is(
+  strong, b, .font-medium, .font-semibold, .font-bold,
+  .font-extrabold, .font-black
 ) {
   color: #000000 !important;
   font-weight: 900 !important;
 }
 
-/* Make section headings clearer without affecting their size. */
-[data-theme="light"] body :is(h1, h2, h3, h4, h5, h6) {
-  font-weight: 700;
+/* Clearer headings without changing their font sizes or spacing. */
+html[data-theme="light"] #root :is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 700 !important;
 }
 
-/* Keep form placeholder text dark enough to read. */
-[data-theme="light"] body :is(input, textarea)::placeholder {
+/* Readable dark placeholders in forms. */
+html[data-theme="light"] #root :is(input, textarea)::placeholder {
   color: #333333 !important;
   opacity: 1;
 }
