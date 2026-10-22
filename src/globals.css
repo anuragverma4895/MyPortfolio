@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* Using the system Times New Roman stack below; external display-font import removed. */
 
 @tailwind base;
 @tailwind components;
@@ -3839,4 +3839,15 @@ img {
 [data-theme="light"] .social-sidebar-link,
 [data-theme="light"] .fixed.left-5.bottom-6 a {
   border-color: rgba(0, 0, 0, 0.28) !important;
+}
+
+/* ═══════════════════════════════════════════════════
+   GLOBAL TYPOGRAPHY — TIMES NEW ROMAN
+   Applies consistently to all text while keeping the
+   existing sizing, weights, colors, layouts, and motion.
+   ═══════════════════════════════════════════════════ */
+html,
+body,
+body * {
+  font-family: "Times New Roman", Times, serif !important;
 }
