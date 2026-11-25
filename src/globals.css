@@ -4094,12 +4094,7 @@ nav[aria-label="Main Navigation"] > div > ul {
   font-weight: 700;
   text-decoration: none;
   line-height: 1.25;
-  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-}
-
-.home-action-main {
-  border-color: var(--accent-cyan);
-  background: rgba(0, 240, 255, 0.1);
+  transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease, transform 180ms ease;
 }
 
 .home-action:hover {
@@ -4111,11 +4106,6 @@ nav[aria-label="Main Navigation"] > div > ul {
 .home-action:focus-visible {
   outline: 2px solid var(--accent-cyan);
   outline-offset: 3px;
-}
-
-[data-theme="light"] .home-action-main {
-  border-color: #52525b;
-  background: #f4f4f5;
 }
 
 [data-theme="light"] .home-action {
@@ -4190,44 +4180,21 @@ nav[aria-label="Main Navigation"] > div > ul {
   }
 }
 
-/* Home action buttons: a continuous, staggered highlight. */
-.home-actions {
-  --home-action-highlight-bg: rgba(0, 240, 255, 0.10);
-  --home-action-highlight-border: var(--accent-cyan);
+/* The React timer owns the active button; no CSS animation or hover pause. */
+.home-actions > .home-action.is-highlighted {
+  background-color: rgba(0, 240, 255, 0.16) !important;
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 0 1px var(--accent-cyan), 0 5px 18px rgba(0, 240, 255, 0.12) !important;
 }
 
-[data-theme="light"] .home-actions {
-  --home-action-highlight-bg: #f4f4f5;
-  --home-action-highlight-border: #52525b;
+[data-theme="light"] .home-actions > .home-action.is-highlighted {
+  background-color: #e4e4e7 !important;
+  border-color: #52525b !important;
+  box-shadow: 0 0 0 1px #52525b, 0 5px 14px rgba(15, 23, 42, 0.10) !important;
 }
 
-@keyframes home-action-highlight {
-  0%, 20%, 100% {
-    background-color: var(--home-action-highlight-bg);
-    border-color: var(--home-action-highlight-border);
-  }
-  25%, 95% {
-    background-color: var(--home-card);
-    border-color: var(--home-line);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: reduce) {
   .home-actions > .home-action {
-    animation: home-action-highlight 8s linear infinite;
-  }
-
-  .home-actions > .home-action:nth-child(2) { animation-delay: -6s; }
-  .home-actions > .home-action:nth-child(3) { animation-delay: -4s; }
-  .home-actions > .home-action:nth-child(4) { animation-delay: -2s; }
-
-  .home-actions:has(:focus-visible) > .home-action {
-    animation-play-state: paused;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) and (hover: hover) {
-  .home-actions:hover > .home-action {
-    animation-play-state: paused;
+    transition: none;
   }
 }
