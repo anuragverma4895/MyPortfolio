@@ -3964,14 +3964,15 @@ nav[aria-label="Main Navigation"] > div > ul {
 /* Dedicated rails for fixed coding profiles, WhatsApp, assistant and resume. */
 @media (min-width: 768px) {
   :root {
-    --portfolio-gutter: clamp(5.75rem, 6.5vw, 7.5rem);
+    --portfolio-gutter: clamp(6.75rem, 8vw, 9rem);
   }
 }
 
 /* Home: focused introduction with a balanced portrait and fixed-button clearance. */
 .home-hero {
   position: relative;
-  min-height: 100svh;
+  --home-height: calc(100svh - clamp(2rem, 8vh, 4rem));
+  min-height: var(--home-height);
   width: 100%;
   overflow: hidden;
   color: var(--text-primary);
@@ -3988,9 +3989,9 @@ nav[aria-label="Main Navigation"] > div > ul {
   position: relative;
   z-index: 10;
   width: 100%;
-  min-height: 100svh;
+  min-height: var(--home-height);
   margin-inline: auto;
-  padding: 6rem var(--portfolio-gutter) 3rem;
+  padding: 6rem var(--portfolio-gutter) 2.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4028,7 +4029,7 @@ nav[aria-label="Main Navigation"] > div > ul {
 .home-title {
   margin: 0;
   color: var(--text-primary);
-  font-size: clamp(2rem, 4.05vw, 4.65rem);
+  font-size: clamp(2rem, 3.8vw, 4.65rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.045em;
@@ -4165,6 +4166,7 @@ nav[aria-label="Main Navigation"] > div > ul {
 }
 
 @media (max-width: 767px) {
+  .home-hero { --home-height: 100svh; }
   .home-layout { padding: 6rem var(--portfolio-gutter) 5.5rem; }
   .home-intro-grid { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
   .home-title { font-size: clamp(1.9rem, 6.2vw, 3rem); white-space: normal; }
