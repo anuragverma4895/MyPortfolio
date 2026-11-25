@@ -3971,7 +3971,8 @@ nav[aria-label="Main Navigation"] > div > ul {
 /* Home: focused introduction with a balanced portrait and fixed-button clearance. */
 .home-hero {
   position: relative;
-  --home-height: calc(100svh - clamp(2rem, 8vh, 4rem));
+  --home-height: 100svh;
+  --home-vertical-padding: clamp(1.5rem, 4vh, 3rem);
   min-height: var(--home-height);
   width: 100%;
   overflow: hidden;
@@ -3991,7 +3992,7 @@ nav[aria-label="Main Navigation"] > div > ul {
   width: 100%;
   min-height: var(--home-height);
   margin-inline: auto;
-  padding: 6rem var(--portfolio-gutter) 2.25rem;
+  padding: calc(76px + var(--home-vertical-padding)) var(--portfolio-gutter) var(--home-vertical-padding);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4009,7 +4010,7 @@ nav[aria-label="Main Navigation"] > div > ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(0.85rem, 2.25vh, 1.5rem);
+  gap: clamp(1rem, 3vh, 1.9rem);
 }
 
 .home-availability {
@@ -4150,7 +4151,7 @@ nav[aria-label="Main Navigation"] > div > ul {
 }
 
 @media (min-width: 1024px) and (max-height: 650px) {
-  .home-layout { padding-top: 5.5rem; padding-bottom: 1.5rem; }
+  .home-hero { --home-vertical-padding: 1rem; }
   .home-copy { gap: 0.7rem; }
   .home-portrait { width: min(100%, 58svh, 25rem); }
 }
@@ -4166,11 +4167,25 @@ nav[aria-label="Main Navigation"] > div > ul {
 }
 
 @media (max-width: 767px) {
-  .home-hero { --home-height: 100svh; }
   .home-layout { padding: 6rem var(--portfolio-gutter) 5.5rem; }
+  .home-copy { gap: 1rem; }
   .home-intro-grid { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
   .home-title { font-size: clamp(1.9rem, 6.2vw, 3rem); white-space: normal; }
   .home-portrait { width: min(13rem, 52vw); }
   .home-profile { grid-row: 1; }
   .home-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Independent hash-routed pages: only the selected section occupies the document. */
+.portfolio-section-page {
+  min-height: 100svh;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  .portfolio-section-page {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
 }
