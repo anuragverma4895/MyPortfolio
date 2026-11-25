@@ -22,16 +22,27 @@ const Contact = () => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    e.target.setCustomValidity(value && !value.trim() ? "Please enter a value, not just spaces." : "");
+    setForm((previous) => ({ ...previous, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
 
-    const name = form.name || "Someone";
-    const email = form.email || "Not provided";
-    const message = form.message || "No message";
+    // Required fields must contain actual text; spaces alone are not valid.
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+
+    for (const [fieldName, value] of Object.entries({ name, email, message })) {
+      const field = e.currentTarget.elements.namedItem(fieldName);
+      if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+        field.setCustomValidity(value ? "" : "Please fill out this field.");
+      }
+    }
+
+    if (!e.currentTarget.reportValidity() || !name || !email || !message) return;
+    setLoading(true);
 
     // Build WhatsApp message
     const whatsappMessage = `🔔 *New Portfolio Contact*%0A%0A👤 *Name:* ${encodeURIComponent(name)}%0A📧 *Email:* ${encodeURIComponent(email)}%0A%0A💬 *Message:*%0A${encodeURIComponent(message)}`;
@@ -65,10 +76,11 @@ const Contact = () => {
 
             return (
               <label key={input} className="flex flex-col">
-                <span className="mb-2 text-[14px] font-medium text-white">{span}</span>
+                <span className="mb-2 text-[14px] font-medium text-white after:ml-1 after:text-red-500 after:content-['*']">{span}</span>
                 <Component
                   type={input === "email" ? "email" : "text"}
                   name={input}
+                  required
                   value={form[`${input}`]}
                   onChange={handleChange}
                   placeholder={placeholder}
