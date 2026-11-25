@@ -39,10 +39,14 @@ const App = () => {
     const base = window.location.pathname + window.location.search;
     const nextUrl = page === 'home' ? base : base + '#' + page;
     const currentUrl = base + window.location.hash;
+    const samePage = getPageFromHash() === page;
     if (currentUrl !== nextUrl) {
       window.history.pushState(null, '', nextUrl);
     }
     setActivePage(page);
+    if (samePage) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+    }
   }, []);
 
   useEffect(() => {
@@ -92,7 +96,27 @@ const App = () => {
   const renderPage = () => {
     switch (activePage) {
       case 'home':
-        return <Hero />;
+        return (
+          <>
+            <div className="bg-hero-pattern bg-cover bg-center bg-no-repeat relative">
+              <Hero />
+            </div>
+            <About />
+            <Suspense fallback={<SectionFallback />}>
+              <SkillsBallSection skills={technologies} />
+            </Suspense>
+            <Education />
+            <Achievements />
+            <Works />
+            <Suspense fallback={<SectionFallback />}>
+              <Contact />
+            </Suspense>
+            <Suspense fallback={<SectionFallback />}>
+              <ProfileSection />
+            </Suspense>
+            <Footer />
+          </>
+        );
       case 'about':
         return <About />;
       case 'skills':
@@ -135,7 +159,7 @@ const App = () => {
       <main
         key={activePage}
         className={activePage === 'home'
-          ? 'bg-hero-pattern bg-cover bg-center bg-no-repeat relative z-10'
+          ? 'relative z-10'
           : 'portfolio-section-page relative z-10'}
         aria-label={activePage === 'home' ? 'Home page' : activePage + ' page'}
       >
