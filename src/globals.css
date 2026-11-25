@@ -3892,3 +3892,153 @@ html[data-theme="light"] #root :is(input, textarea)::placeholder {
   color: #333333 !important;
   opacity: 1;
 }
+
+/* Full-width portfolio layout — shared gutters keep fixed side actions clear. */
+:root {
+  --portfolio-gutter: 1rem;
+  --portfolio-panel-padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --portfolio-gutter: 1.5rem;
+    --portfolio-panel-padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --portfolio-gutter: clamp(4.5rem, 5vw, 6rem);
+    --portfolio-panel-padding: clamp(1.5rem, 2.5vw, 3rem);
+  }
+}
+
+/* Main section panels and dividers use the viewport rather than a 1280px cap. */
+section.light-section-surface,
+.skill-section-shell {
+  width: calc(100% - 2 * var(--portfolio-gutter));
+  max-width: none;
+  padding-inline: var(--portfolio-panel-padding);
+}
+
+.section-divider {
+  width: calc(100% - 2 * var(--portfolio-gutter));
+  max-width: none;
+}
+
+footer > .max-w-7xl {
+  width: 100%;
+  max-width: none;
+  padding-inline: var(--portfolio-gutter);
+}
+
+#contact > .max-w-7xl {
+  max-width: none;
+}
+
+/* Stretch navigation across the screen while preserving its mobile menu. */
+nav[aria-label="Main Navigation"] {
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+nav[aria-label="Main Navigation"] > .max-w-6xl {
+  max-width: none;
+  gap: 1rem;
+}
+
+nav[aria-label="Main Navigation"] > div > ul {
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  nav[aria-label="Main Navigation"] > div > ul,
+  nav[aria-label="Main Navigation"] > div > div:nth-child(3) {
+    display: none;
+  }
+
+  nav[aria-label="Main Navigation"] > div > div:last-child {
+    display: flex;
+  }
+}
+
+/* The hero background remains edge-to-edge; its content fills the safe area. */
+.bg-hero-pattern > section > .max-w-7xl {
+  width: 100%;
+  max-width: none;
+  padding-inline: var(--portfolio-gutter);
+}
+
+.hero-headline,
+.hero-headline > span,
+.hero-name-gradient {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.hero-role-title,
+.hero-subtitle {
+  width: auto;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .bg-hero-pattern > section > .max-w-7xl {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .bg-hero-pattern > section > .max-w-7xl > div:first-child > .max-w-\[680px\] {
+    max-width: none;
+  }
+
+  .hero-headline {
+    font-size: clamp(3rem, 5.2vw, 5.5rem);
+  }
+
+  .hero-subtitle {
+    max-width: 42rem;
+  }
+
+  .hero-avatar-container {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero-avatar-wrapper {
+    flex: none;
+    width: min(100%, clamp(20rem, 36vw, 37.5rem));
+    height: auto;
+    aspect-ratio: 1;
+    min-width: 0;
+    min-height: 0;
+    max-width: none;
+    max-height: none;
+  }
+
+  .hero-avatar-glow {
+    width: min(100%, 39rem);
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .hero-cta-group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-headline,
+  .hero-role-title,
+  .hero-subtitle {
+    width: 100%;
+  }
+
+  .hero-cta-group > a {
+    min-width: 0;
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+}
