@@ -4198,3 +4198,12 @@ nav[aria-label="Main Navigation"] > div > ul {
     transition: none;
   }
 }
+
+/* Preserve white labels on dark solid action buttons in light mode. */
+html[data-theme="light"] #root .btn-solid,
+html[data-theme="light"] #root .btn-solid:hover,
+html[data-theme="light"] #root .btn-solid:focus-visible,
+html[data-theme="light"] #root .btn-solid :is(span, strong, b, svg) {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
