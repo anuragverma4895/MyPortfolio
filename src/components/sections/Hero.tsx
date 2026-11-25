@@ -170,7 +170,7 @@ const HomeActions = () => {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveIndex((index) => (index + 1) % homeActions.length);
-    }, 2000);
+    }, 1500);
     return () => window.clearInterval(timer);
   }, []);
 
