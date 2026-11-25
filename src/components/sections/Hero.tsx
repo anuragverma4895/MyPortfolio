@@ -157,28 +157,6 @@ const ConstellationCanvas = () => {
   );
 };
 
-const highlights = [
-  { value: "1,200+", label: "DSA Problems Solved" },
-  { value: "Knight", label: "LeetCode · 1900+ Rating" },
-  { value: "3★", label: "CodeChef Rating" },
-  { value: "10+", label: "Projects Built & Deployed" },
-];
-
-const featuredProjects = [
-  {
-    title: "AI Mock Interview Platform",
-    category: "Full Stack · Generative AI",
-    description: "Resume-based interview practice with AI-generated questions, feedback and analytics.",
-    href: "https://ai-mock-interview-platform-cizl.onrender.com/",
-  },
-  {
-    title: "Payment Processing System",
-    category: "Backend · System Design",
-    description: "A payment workflow with idempotency, webhook handling, retries and transaction audit trails.",
-    href: "https://payment-processing-system-theta.vercel.app/",
-  },
-];
-
 const Hero = () => {
   const reduceMotion = useReducedMotion();
 
@@ -241,40 +219,7 @@ const Hero = () => {
             <div className="home-portrait">
               <img src={anuragHero} alt="Portfolio display picture" loading="eager" />
             </div>
-            <p className="home-profile-caption">B.Tech CSE (AI) · Competitive Programmer</p>
           </motion.div>
-        </div>
-
-        <dl className="home-stats" aria-label="Career highlights">
-          {highlights.map((highlight) => (
-            <div className="home-stat" key={highlight.label}>
-              <dt>{highlight.label}</dt>
-              <dd>{highlight.value}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <div className="home-featured">
-          <div className="home-featured-heading">
-            <h2>Featured Projects</h2>
-            <a href="#work">View all projects</a>
-          </div>
-          <div className="home-projects">
-            {featuredProjects.map((project) => (
-              <a
-                className="home-project"
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                key={project.title}
-              >
-                <span className="home-project-label">{project.category}</span>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <span className="home-project-arrow" aria-hidden="true">↗</span>
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </section>
