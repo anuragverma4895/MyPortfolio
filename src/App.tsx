@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useCallback, useState } from 'react';
+import { lazy, Suspense, useEffect, useLayoutEffect, useCallback, useState } from 'react';
 
 import About from './components/sections/About';
 import Hero from './components/sections/Hero';
@@ -10,7 +10,6 @@ import Footer from './components/layout/Footer';
 import { config } from './constants/config';
 import { technologies } from './constants';
 
-// Lazy load heavy components
 const SkillsBallSection = lazy(() => import('./components/sections/SkillsBallSection'));
 const StarsCanvas = lazy(() => import('./components/canvas/Stars'));
 const EarthCanvas = lazy(() => import('./components/canvas/Earth'));
@@ -21,50 +20,79 @@ const ResumeButton = lazy(() => import('./components/layout/ResumeButton'));
 const WhatsAppButton = lazy(() => import('./components/layout/WhatsAppButton'));
 const AiAssistant = lazy(() => import('./components/layout/AiAssistant'));
 
-const overlaySectionIds = ['about', 'skills', 'education', 'achievements', 'work', 'contact'] as const;
-type OverlaySectionId = (typeof overlaySectionIds)[number];
+const pageIds = ['home', 'about', 'skills', 'education', 'achievements', 'work', 'contact'] as const;
+type PageId = (typeof pageIds)[number];
 
-// Lightweight placeholder for lazy sections
-const SectionFallback = ({ height = '20rem' }: { height?: string }) => (
-  <div style={{ minHeight: height }} />
-);
+const isPageId = (id: string): id is PageId => pageIds.includes(id as PageId);
 
-const isOverlaySectionId = (sectionId: string): sectionId is OverlaySectionId =>
-  overlaySectionIds.includes(sectionId as OverlaySectionId);
+const getPageFromHash = (): PageId => {
+  const id = window.location.hash.slice(1);
+  return isPageId(id) ? id : 'home';
+};
 
-/** Scroll to the first real content inside a section, accounting for the fixed navbar. */
-function smoothScrollToElement(element: HTMLElement) {
-  const navbar = document.querySelector('nav');
-  const navbarHeight = navbar ? navbar.getBoundingClientRect().height : 80;
-  const scrollAnchor =
-    element.querySelector<HTMLElement>(':scope > .hash-span + *') ?? element;
-  const elementTop =
-    scrollAnchor.getBoundingClientRect().top + window.scrollY - navbarHeight - 12;
-
-  window.scrollTo({ top: Math.max(0, elementTop), behavior: 'smooth' });
-}
+const SectionFallback = () => <div className="min-h-[28rem]" aria-busy="true" />;
 
 const App = () => {
-  const [activeOverlaySection, setActiveOverlaySection] = useState<OverlaySectionId | null>(null);
+  const [activePage, setActivePage] = useState<PageId>(getPageFromHash);
 
-  const openOverlaySection = useCallback((sectionId: OverlaySectionId) => {
-    setActiveOverlaySection(sectionId);
-    const nextHash = `#${sectionId}`;
-    if (window.location.hash !== nextHash) {
-      window.history.pushState(null, '', nextHash);
+  const navigateTo = useCallback((page: PageId) => {
+    const base = window.location.pathname + window.location.search;
+    const nextUrl = page === 'home' ? base : base + '#' + page;
+    const currentUrl = base + window.location.hash;
+    if (currentUrl !== nextUrl) {
+      window.history.pushState(null, '', nextUrl);
     }
+    setActivePage(page);
   }, []);
 
-  const closeOverlaySection = useCallback(() => {
-    setActiveOverlaySection(null);
-    const currentHash = window.location.hash.slice(1);
-    if (isOverlaySectionId(currentHash)) {
-      window.history.pushState(null, '', window.location.pathname + window.location.search);
-    }
+  useEffect(() => {
+    document.title = config.html.title;
+    const syncPage = () => setActivePage(getPageFromHash());
+    window.addEventListener('popstate', syncPage);
+    window.addEventListener('hashchange', syncPage);
+    const previousRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = 'manual';
+    return () => {
+      window.removeEventListener('popstate', syncPage);
+      window.removeEventListener('hashchange', syncPage);
+      window.history.scrollRestoration = previousRestoration;
+    };
   }, []);
 
-  const renderOverlayContent = () => {
-    switch (activeOverlaySection) {
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+  }, [activePage]);
+
+  useEffect(() => {
+    const handleNavigation = (event: MouseEvent) => {
+      if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      if (!(event.target instanceof Element)) return;
+      const anchor = event.target.closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!anchor || anchor.hasAttribute('download') || (anchor.target && anchor.target !== '_self')) return;
+      const page = anchor.hash.slice(1);
+      if (!isPageId(page)) return;
+      event.preventDefault();
+      navigateTo(page);
+    };
+    document.addEventListener('click', handleNavigation);
+    return () => document.removeEventListener('click', handleNavigation);
+  }, [navigateTo]);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape' || event.defaultPrevented || activePage === 'home') return;
+      if (event.target instanceof HTMLElement && (event.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(event.target.tagName))) return;
+      if (document.querySelector('.ai-chat-window')) return;
+      navigateTo('home');
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [activePage, navigateTo]);
+
+  const renderPage = () => {
+    switch (activePage) {
+      case 'home':
+        return <Hero />;
       case 'about':
         return <About />;
       case 'skills':
@@ -76,188 +104,50 @@ const App = () => {
       case 'work':
         return <Works />;
       case 'contact':
-        return <Contact />;
-      default:
-        return null;
+        return (
+          <>
+            <Contact />
+            <ProfileSection />
+          </>
+        );
     }
   };
 
-  useEffect(() => {
-    if (document.title !== config.html.title) {
-      document.title = config.html.title;
-    }
-  }, []);
-
-  useEffect(() => {
-    const syncOverlayFromHash = () => {
-      const sectionId = window.location.hash.slice(1);
-      setActiveOverlaySection(isOverlaySectionId(sectionId) ? sectionId : null);
-    };
-
-    syncOverlayFromHash();
-    window.addEventListener('popstate', syncOverlayFromHash);
-
-    return () => {
-      window.removeEventListener('popstate', syncOverlayFromHash);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!activeOverlaySection) return;
-
-    const originalBodyOverflow = document.body.style.overflow;
-    const originalHtmlOverflow = document.documentElement.style.overflow;
-    document.body.style.overflow = 'hidden';
-    document.documentElement.style.overflow = 'hidden';
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        closeOverlaySection();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = originalBodyOverflow;
-      document.documentElement.style.overflow = originalHtmlOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [activeOverlaySection, closeOverlaySection]);
-
-  // Smooth scroll handler for non-overlay anchor links; section links open page-style overlays.
-  const handleSmoothScroll = useCallback((e: MouseEvent) => {
-    const target = e.target as HTMLElement;
-    const anchor = target.closest<HTMLAnchorElement>('a[href^="#"]');
-    if (!anchor) return;
-
-    const href = anchor.getAttribute('href');
-    if (!href || href === '#') return;
-
-    const sectionId = href.slice(1);
-
-    if (sectionId === 'home') {
-      e.preventDefault();
-      closeOverlaySection();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      window.history.pushState(null, '', '/');
-      return;
-    }
-
-    if (isOverlaySectionId(sectionId)) {
-      e.preventDefault();
-      openOverlaySection(sectionId);
-      return;
-    }
-
-    const element = document.getElementById(sectionId);
-    if (!element) return;
-
-    e.preventDefault();
-    smoothScrollToElement(element);
-    window.history.pushState(null, '', href);
-  }, [openOverlaySection, closeOverlaySection]);
-
-  useEffect(() => {
-    document.addEventListener('click', handleSmoothScroll);
-    return () => {
-      document.removeEventListener('click', handleSmoothScroll);
-    };
-  }, [handleSmoothScroll]);
-
-  const isContactOverlay = activeOverlaySection === 'contact';
-
   return (
-    <div className={`relative z-0 theme-transition`}>
-      {/* Fixed Background Layer */}
-      <div 
-        className="fixed inset-0 z-[-1] noise-bg theme-transition pointer-events-none" 
+    <div className="relative z-0 min-h-screen theme-transition">
+      <div
+        className="fixed inset-0 z-[-1] noise-bg theme-transition pointer-events-none"
         style={{ background: 'var(--bg-primary)' }}
+        aria-hidden="true"
       >
         <Suspense fallback={null}>
           <StarsCanvas />
-        </Suspense>
-        <div className="absolute inset-0 m-auto flex h-[80vh] w-full max-w-[800px] items-center justify-center opacity-20">
-          <Suspense fallback={null}>
+          <div className="absolute inset-0 m-auto flex h-[80vh] w-full max-w-[800px] items-center justify-center opacity-20">
             <EarthCanvas />
-          </Suspense>
-        </div>
+          </div>
+        </Suspense>
       </div>
-
 
       <div className="relative z-[50]">
-        <Navbar activeSection={activeOverlaySection} />
+        <Navbar activeSection={activePage} />
       </div>
 
-      <div className="bg-hero-pattern bg-cover bg-center bg-no-repeat relative z-10">
-        <Hero />
-      </div>
-
-      <div className="relative z-10">
-        <About />
-
-        <Suspense fallback={<SectionFallback height="32rem" />}>
-          <SkillsBallSection skills={technologies} />
+      <main
+        key={activePage}
+        className={activePage === 'home'
+          ? 'bg-hero-pattern bg-cover bg-center bg-no-repeat relative z-10'
+          : 'portfolio-section-page relative z-10'}
+        aria-label={activePage === 'home' ? 'Home page' : activePage + ' page'}
+      >
+        <Suspense fallback={<SectionFallback />}>
+          {renderPage()}
         </Suspense>
-
-        <Education />
-
-        <Achievements />
-
-        <Works />
-
-        <Suspense fallback={<SectionFallback height="28rem" />}>
-          <ProfileSection />
-        </Suspense>
-        <Footer />
-      </div>
-
-      {activeOverlaySection && (
-        <div
-          className="fixed inset-0 z-[80] overflow-hidden theme-transition"
-          style={{ background: 'var(--bg-primary)' }}
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${activeOverlaySection} page`}
-        >
-          {/* Overlay Background Layer */}
-          <div className="absolute inset-0 z-[-1] noise-bg pointer-events-none">
-            <Suspense fallback={null}>
-              <StarsCanvas />
-            </Suspense>
-            <div className="absolute inset-0 m-auto flex h-[80vh] w-full max-w-[800px] items-center justify-center opacity-20">
-              <Suspense fallback={null}>
-                <EarthCanvas />
-              </Suspense>
-            </div>
-          </div>
-
-          <Navbar activeSection={activeOverlaySection} />
-
-          <Suspense fallback={null}>
-            <SocialSidebar />
-            <WhatsAppButton onClick={() => openOverlaySection('contact')} />
-            <ResumeButton />
-            <AiAssistant />
-          </Suspense>
-
-          <div
-            className={
-              isContactOverlay
-                ? 'relative z-10 flex h-screen translate-y-8 items-center justify-center px-0 py-0'
-                : 'overlay-page-scroll relative z-10 h-screen pt-28 pb-12'
-            }
-          >
-            <Suspense fallback={<SectionFallback height="28rem" />}>
-              {renderOverlayContent()}
-            </Suspense>
-          </div>
-        </div>
-      )}
+        {activePage === 'contact' && <Footer />}
+      </main>
 
       <Suspense fallback={null}>
         <SocialSidebar />
-        <WhatsAppButton onClick={() => openOverlaySection('contact')} />
+        <WhatsAppButton onClick={() => navigateTo('contact')} />
         <ResumeButton />
         <AiAssistant />
       </Suspense>
