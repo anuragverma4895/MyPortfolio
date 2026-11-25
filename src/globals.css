@@ -1798,8 +1798,7 @@ img {
   transition: transform 0.3s ease;
 }
 
-.nav-underline.active::after,
-.nav-underline:hover::after {
+.nav-underline.active::after {
   transform: scaleX(1);
   transform-origin: left;
 }
