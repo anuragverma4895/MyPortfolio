@@ -15,53 +15,74 @@ const Navbar = ({ activeSection = null, contactOpen = false }: NavbarProps) => {
   const [active, setActive] = useState<string | null>("home");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const rafRef = useRef<number>(0);
-  const lastScrollY = useRef(0);
+
+  // Standalone routes keep their own active item; Home follows the visible section.
+  const followsScroll = !activeSection || activeSection === "home";
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (rafRef.current) return;
+    const updateActiveSection = () => {
+      rafRef.current = 0;
+      const scrollTop = window.scrollY;
+      setScrolled(scrollTop > 100);
 
-      rafRef.current = requestAnimationFrame(() => {
-        const scrollTop = window.scrollY;
-        lastScrollY.current = scrollTop;
+      if (!followsScroll) return;
 
-        setScrolled(scrollTop > 100);
-        if (scrollTop <= 100) {
-          setActive("home");
-        }
+      const main = document.querySelector("main");
+      if (!main) return;
 
-        const sections = document.querySelectorAll("section[id]");
-        sections.forEach((current) => {
-          const sectionId = current.getAttribute("id");
-          // @ts-ignore
-          const sectionHeight = current.offsetHeight;
-          const sectionTop =
-            current.getBoundingClientRect().top - sectionHeight * 0.2;
+      const viewportHeight = window.innerHeight;
+      const navBottom = navRef.current?.getBoundingClientRect().bottom ?? 76;
+      const readingLine = navBottom + Math.max(0, viewportHeight - navBottom) * 0.25;
+      const maxScroll = document.documentElement.scrollHeight - viewportHeight;
 
-          if (sectionTop < 0 && sectionTop + sectionHeight > 0) {
-            setActive(sectionId);
+      let current = "home";
+      if (scrollTop > 8) {
+        for (const link of navLinks) {
+          const section = document.getElementById(link.id);
+          if (section && main.contains(section) && section.getBoundingClientRect().top <= readingLine) {
+            current = link.id;
           }
-        });
-
-        rafRef.current = 0;
-      });
+        }
+        // Keep the final navigation item selected while reading the profile/footer.
+        if (maxScroll > 8 && scrollTop >= maxScroll - 4 && main.querySelector("#contact")) {
+          current = "contact";
+        }
+      }
+      setActive(current);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
+    const scheduleUpdate = () => {
+      if (!rafRef.current) {
+        rafRef.current = window.requestAnimationFrame(updateActiveSection);
       }
     };
-  }, []);
 
-  const displayedActive = activeSection ?? (contactOpen ? "contact" : active);
+    const main = document.querySelector("main");
+    const observer = typeof ResizeObserver !== "undefined" && main
+      ? new ResizeObserver(scheduleUpdate)
+      : null;
+    if (observer && main) observer.observe(main);
+
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      observer?.disconnect();
+      if (rafRef.current) window.cancelAnimationFrame(rafRef.current);
+      rafRef.current = 0;
+    };
+  }, [activeSection, followsScroll]);
+
+  const displayedActive = contactOpen ? "contact" : followsScroll ? active : activeSection;
 
   return (
     <nav
+      ref={navRef}
       aria-label="Main Navigation"
       className={`${
         styles.paddingX
@@ -99,7 +120,7 @@ const Navbar = ({ activeSection = null, contactOpen = false }: NavbarProps) => {
                   : "text-secondary hover:text-white"
               }`}
             >
-              <a href={`#${nav.id}`} data-nav-link="true">
+              <a href={`#${nav.id}`} data-nav-link="true" aria-current={displayedActive === nav.id ? (followsScroll ? "location" : "page") : undefined}>
                 {nav.title}
               </a>
             </li>
@@ -143,14 +164,14 @@ const Navbar = ({ activeSection = null, contactOpen = false }: NavbarProps) => {
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`cursor-pointer text-[16px] font-medium transition-colors duration-200 ${
-                    displayedActive === nav.id ? "text-accent-cyan" : "text-secondary hover:text-white"
+                  className={`nav-underline ${displayedActive === nav.id ? "active" : ""} cursor-pointer text-[16px] font-medium transition-colors duration-200 ${
+                    displayedActive === nav.id ? "nav-link-active" : "text-secondary hover:text-white"
                   }`}
                   onClick={() => {
                     setToggle(false);
                   }}
                 >
-                  <a href={`#${nav.id}`} data-nav-link="true">{nav.title}</a>
+                  <a href={`#${nav.id}`} data-nav-link="true" aria-current={displayedActive === nav.id ? (followsScroll ? "location" : "page") : undefined}>{nav.title}</a>
                 </li>
               ))}
             </ul>
