@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { styles } from "../../constants/styles";
 import { navLinks } from "../../constants";
@@ -58,10 +58,6 @@ const Navbar = ({ activeSection = null, contactOpen = false }: NavbarProps) => {
     };
   }, []);
 
-  const handleLogoClick = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
   const displayedActive = activeSection ?? (contactOpen ? "contact" : active);
 
   return (
@@ -77,13 +73,10 @@ const Navbar = ({ activeSection = null, contactOpen = false }: NavbarProps) => {
     >
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between">
         <a
-          href="#"
+          href="#home"
           className="flex items-center gap-2 group"
           aria-label={`${config.html.title} - Back to top`}
-          onClick={(e) => {
-            e.preventDefault();
-            handleLogoClick();
-          }}
+          onClick={() => setToggle(false)}
         >
           <div className="relative">
             <img src={logo} alt="" className="h-9 w-9 object-contain transition-transform duration-300 group-hover:scale-110" />
