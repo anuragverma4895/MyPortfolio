@@ -1,35 +1,8 @@
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef } from "react";
 
-import { styles } from "../../constants/styles";
 import { config } from "../../constants/config";
 import { anuragHero } from "../../assets";
-
-function useTypingEffect(texts: string[], speed = 50, _pause = 2000) {
-  const [displayText, setDisplayText] = useState("");
-  const [isTyping, setIsTyping] = useState(true);
-
-  useEffect(() => {
-    const fullText = texts.join(" ");
-    let index = 0;
-    let timeout: ReturnType<typeof setTimeout>;
-
-    const type = () => {
-      if (index <= fullText.length) {
-        setDisplayText(fullText.slice(0, index));
-        index++;
-        timeout = setTimeout(type, speed);
-      } else {
-        setIsTyping(false);
-      }
-    };
-
-    timeout = setTimeout(type, 1200);
-    return () => clearTimeout(timeout);
-  }, [texts, speed, _pause]);
-
-  return { displayText, isTyping };
-}
 
 const ConstellationCanvas = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -184,177 +157,126 @@ const ConstellationCanvas = () => {
   );
 };
 
+const highlights = [
+  { value: "1,200+", label: "DSA Problems Solved" },
+  { value: "Knight", label: "LeetCode · 1900+ Rating" },
+  { value: "3★", label: "CodeChef Rating" },
+  { value: "10+", label: "Projects Built & Deployed" },
+];
+
+const featuredProjects = [
+  {
+    title: "AI Mock Interview Platform",
+    category: "Full Stack · Generative AI",
+    description: "Resume-based interview practice with AI-generated questions, feedback and analytics.",
+    href: "https://ai-mock-interview-platform-cizl.onrender.com/",
+  },
+  {
+    title: "Payment Processing System",
+    category: "Backend · System Design",
+    description: "A payment workflow with idempotency, webhook handling, retries and transaction audit trails.",
+    href: "https://payment-processing-system-theta.vercel.app/",
+  },
+];
+
 const Hero = () => {
-  const { displayText, isTyping } = useTypingEffect(config.hero.p, 35);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const imgX = useTransform(mouseX, [-500, 500], [-8, 8]);
-  const imgY = useTransform(mouseY, [-500, 500], [-6, 6]);
-
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => {
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      mouseX.set(e.clientX - rect.left - rect.width / 2);
-      mouseY.set(e.clientY - rect.top - rect.height / 2);
-    },
-    [mouseX, mouseY]
-  );
+  const reduceMotion = useReducedMotion();
 
   return (
-    <section
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      className="relative mx-auto min-h-[100svh] w-full overflow-hidden"
-    >
-      <ConstellationCanvas />
-      <div className="hero-gradient-overlay" />
+    <section className="home-hero" id="home">
+      {!reduceMotion && <ConstellationCanvas />}
+      <div className="hero-gradient-overlay" aria-hidden="true" />
       <div className="hero-surface-grid" aria-hidden="true" />
 
-      <div
-        className={`relative z-10 mx-auto flex min-h-[100svh] max-w-7xl items-center justify-between gap-10 pb-24 pt-28 ${styles.paddingX} lg:gap-14 lg:pb-20 lg:pt-24`}
-      >
-        <div className="relative z-50 flex min-w-0 flex-1 items-start gap-4 sm:gap-6">
-          <div className="mt-3 hidden flex-col items-center justify-center sm:flex">
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
-              className="h-5 w-5 rounded-full"
-              style={{
-                background: "linear-gradient(135deg, #00F0FF, #FF006E)",
-                boxShadow:
-                  "0 0 20px rgba(0, 240, 255, 0.5), 0 0 40px rgba(0, 240, 255, 0.2)",
-              }}
-            />
-            <motion.div
-              initial={{ scaleY: 0 }}
-              animate={{ scaleY: 1 }}
-              transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-              className="h-56 w-1 origin-top lg:h-72"
-              style={{
-                background: "linear-gradient(180deg, #00F0FF, transparent)",
-              }}
-            />
-          </div>
+      <div className="home-layout">
+        <div className="home-intro-grid">
+          <motion.div
+            className="home-copy"
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45 }}
+          >
+            <div className="home-availability">
+              <span className="status-dot" aria-hidden="true" />
+              Available for work
+            </div>
 
-          <div className="w-full min-w-0 max-w-[680px]">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 backdrop-blur-md"
-            >
-              <span className="status-dot" />
-              <span className="text-[12px] font-semibold uppercase tracking-[0.2em] text-white/60">
-                Available for work
-              </span>
-            </motion.div>
+            <h1 className="home-title">Hi, I'm {config.hero.name}</h1>
+            <p className="home-role">Full-Stack Developer &amp; AI Engineer</p>
 
-            <h1 className={`${styles.heroHeadText} hero-headline text-white`}>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="block"
-              >
-                Hi, I'm
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                transition={{ delay: 0.55, duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] }}
-                className="relative mt-2 block w-fit"
-              >
-                <span className="hero-name-gradient relative block">{config.hero.name}</span>
-              </motion.span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.05, duration: 0.6 }}
-              className="hero-role-title mt-5"
-            >
-              Full-Stack Developer & AI Engineer
-            </motion.p>
-
-            <p className={`${styles.heroSubText} hero-subtitle mt-4 max-w-[560px]`}>
-              <span>{displayText}</span>
-              <span
-                className={`ml-1 inline-block h-[1em] w-[2px] bg-accent-cyan align-middle ${
-                  isTyping ? "animate-pulse" : "opacity-0"
-                }`}
-              />
+            <p className="home-summary">
+              I build scalable web applications, intelligent AI-powered systems,
+              and reliable backend services. With a strong foundation in data
+              structures, algorithms, and competitive programming, I enjoy turning
+              complex problems into practical software solutions.
             </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.45, duration: 0.65 }}
-              className="mt-7 flex flex-wrap gap-3"
-            >
-              {["MERN Stack", "AI/ML Systems", "Realtime Apps"].map((item) => (
-                <span key={item} className="hero-skill-pill">
-                  {item}
-                </span>
+            <div className="home-stack" aria-label="Core technical skills">
+              {["C++", "MERN Stack", "TypeScript", "AI/ML", "System Design", "SQL"].map((skill) => (
+                <span key={skill}>{skill}</span>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.8, duration: 0.8 }}
-              className="hero-cta-group relative z-[60] mt-10 flex flex-wrap items-center gap-2"
-            >
-              <a href="#work" className="hero-cta-primary cursor-pointer">
-                <span className="relative z-10">View My Work</span>
-              </a>
-              <a href="#contact" className="hero-cta-secondary cursor-pointer">
-                Get In Touch
-              </a>
-              <a
-                href="/resume.pdf"
-                className="hero-cta-secondary cursor-pointer"
-              >
-                Resume
-              </a>
+            <div className="home-actions">
+              <a href="#work" className="home-action home-action-main">View My Work</a>
+              <a href="#contact" className="home-action">Get In Touch</a>
+              <a href="/resume.pdf" className="home-action">Resume</a>
               <a
                 href="https://github.com/anuragverma4895"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hero-cta-secondary cursor-pointer"
+                className="home-action"
               >
                 View GitHub
               </a>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="home-profile"
+            initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.55 }}
+          >
+            <div className="home-portrait">
+              <img src={anuragHero} alt="Portfolio display picture" loading="eager" />
+            </div>
+            <p className="home-profile-caption">B.Tech CSE (AI) · Competitive Programmer</p>
+          </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 80, scale: 0.9 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{
-            delay: 0.5,
-            duration: 1.4,
-            ease: [0.2, 0.65, 0.3, 0.9],
-          }}
-          className="hero-avatar-container pointer-events-none relative hidden flex-1 items-center justify-end lg:flex"
-        >
-          <div className="hero-avatar-glow" />
-          <motion.div style={{ x: imgX, y: imgY }} className="hero-avatar-wrapper pointer-events-auto">
-            <img
-              src={anuragHero}
-              alt="Anurag Verma - Full Stack Developer and AI Engineer"
-              className="hero-avatar-img"
-              loading="eager"
-            />
-          </motion.div>
-        </motion.div>
-      </div>
+        <dl className="home-stats" aria-label="Career highlights">
+          {highlights.map((highlight) => (
+            <div className="home-stat" key={highlight.label}>
+              <dt>{highlight.label}</dt>
+              <dd>{highlight.value}</dd>
+            </div>
+          ))}
+        </dl>
 
+        <div className="home-featured">
+          <div className="home-featured-heading">
+            <h2>Featured Projects</h2>
+            <a href="#work">View all projects</a>
+          </div>
+          <div className="home-projects">
+            {featuredProjects.map((project) => (
+              <a
+                className="home-project"
+                href={project.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={project.title}
+              >
+                <span className="home-project-label">{project.category}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+                <span className="home-project-arrow" aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
