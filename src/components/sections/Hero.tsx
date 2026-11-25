@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { config } from "../../constants/config";
 import { anuragHero } from "../../assets";
@@ -157,6 +157,40 @@ const ConstellationCanvas = () => {
   );
 };
 
+const homeActions = [
+  { label: "View My Work", href: "#work", external: false },
+  { label: "Get In Touch", href: "#contact", external: false },
+  { label: "Resume", href: "/resume.pdf", external: false },
+  { label: "View GitHub", href: "https://github.com/anuragverma4895", external: true },
+];
+
+const HomeActions = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % homeActions.length);
+    }, 2000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="home-actions">
+      {homeActions.map((action, index) => (
+        <a
+          key={action.href}
+          href={action.href}
+          className={index === activeIndex ? "home-action is-highlighted" : "home-action"}
+          target={action.external ? "_blank" : undefined}
+          rel={action.external ? "noopener noreferrer" : undefined}
+        >
+          {action.label}
+        </a>
+      ))}
+    </div>
+  );
+};
+
 const Hero = () => {
   const reduceMotion = useReducedMotion();
 
@@ -195,19 +229,7 @@ const Hero = () => {
               ))}
             </div>
 
-            <div className="home-actions">
-              <a href="#work" className="home-action home-action-main">View My Work</a>
-              <a href="#contact" className="home-action">Get In Touch</a>
-              <a href="/resume.pdf" className="home-action">Resume</a>
-              <a
-                href="https://github.com/anuragverma4895"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="home-action"
-              >
-                View GitHub
-              </a>
-            </div>
+            <HomeActions />
           </motion.div>
 
           <motion.div
